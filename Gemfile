@@ -11,6 +11,7 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem 'haml'
 gem 'simple_form'
+gem 'pry'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
