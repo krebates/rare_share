@@ -1,2 +1,29 @@
-%h4
-  ="Hello"
+= image_tag "banner.jpg", { class: "border--yellow--bottom banner" }
+
+.margin--x-large--top
+  .row
+    .col-md-8
+      .padding--large--horizontal
+        %h4
+          = "WHY RARE DISORDERS?"
+        %p.margin--small--top
+          = "Even though there are 7,000 known rare conditions, many of the 300 million affected patients around the globe feel along. RareShare was founded in 2008 to give these people and their loved ones a sense of community; a place to sympathize, celebrate, and share their experiences and expertise, together." 
+        %h4
+          = "BENEFITS OF RARESHARE COMMUNITIES"
+    .col-md-4
+      .border--yellow
+        %h4
+          = "RareShare in Action"
+      .row
+        .col-md-2
+          = image_tag "#"
+        .col-md-10
+          %p
+            = "Create a sense of community for those affected by rare disorders."
+
+
+= render 'about'
+
+%footer
+
+
