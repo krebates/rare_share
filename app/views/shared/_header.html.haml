@@ -1,0 +1,10 @@
+.navbar.navbar-default.navbar-fixed-top.padding--small--vertical
+  - if user_signed_in?
+    = link_to 'Edit profile', edit_user_registration_path, { class: "btn btn-default btn-lg pull-right" }
+    = link_to "Logout", destroy_user_session_path, method: :delete
+  - else
+    .padding--medium--right
+      = link_to "SIGN IN", new_user_session_path, { class: "btn btn-lg pull-right" }
+      = link_to "REGISTER", new_user_registration_path, { class: "btn btn-lg pull-right margin--small--right" }
+
+
