@@ -9,6 +9,18 @@
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div
       Currently waiting confirmation for: #{resource.unconfirmed_email}
+  %div 
+    = f.label :first_name
+    %br/
+    = f.text_field :first_name, value: "#{current_user.first_name}"
+  %div 
+    = f.label :last_name
+    %br/
+    = f.text_field :last_name, value: "#{current_user.last_name}"
+  %div 
+    = f.label :dob
+    %br/
+    = f.date_field :dob, value: "#{current_user.dob}"
   %div
     = f.label :password
     %i (leave blank if you don't want to change it)
