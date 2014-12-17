@@ -12,6 +12,7 @@ gem 'devise'
 gem 'haml'
 gem 'simple_form'
 gem 'pry'
+gem 'rails_admin'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
