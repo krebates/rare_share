@@ -13,7 +13,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'autoprefixer-rails'
 gem 'haml'
 gem 'simple_form'
-gem 'pry'
 gem 'rails_admin'
 
 #security
@@ -25,6 +24,7 @@ group :development, :test do
   gem 'byebug'
   gem 'better_errors'
   gem 'capybara'
+  gem 'binding_of_caller'
 end
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

@@ -1,6 +1,7 @@
 .navbar.navbar-default.navbar-fixed-top.padding--small--vertical
   - if user_signed_in?
-    = link_to 'Join a Community', communities_path
+    = link_to 'Join a Community', new_membership_path
+    = link_to 'Create a Community', new_community_path
     = link_to 'Edit profile', edit_user_registration_path, { class: "btn btn-default btn-lg pull-right" }
     = link_to "Logout", destroy_user_session_path, method: :delete
   - else
