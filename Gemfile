@@ -14,6 +14,7 @@ gem 'autoprefixer-rails'
 gem 'haml'
 gem 'simple_form'
 gem 'rails_admin'
+gem 'font-awesome-rails'
 
 #security
 gem 'devise'
