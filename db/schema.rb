@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141220235439) do
     t.integer  "community_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
 
   create_table "roles", force: true do |t|
     t.string  "name",    null: false
