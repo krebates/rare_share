@@ -13,6 +13,7 @@ gem 'haml'
 gem 'simple_form'
 gem 'pry'
 gem 'rails_admin'
+gem 'font-awesome-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
