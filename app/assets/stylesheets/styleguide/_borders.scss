@@ -3,11 +3,14 @@
 }
 
 .border--gray {
-  border: 1px solid gray; 
+  border: 1px solid #DAD8DD; 
 }
 
+.border--gray--left {
+  border-left: 1px solid #DAD8DD; 
+}
 .border--yellow--bottom {
-  border-bottom: 10px solid #DDD02D; 
+  border-bottom: 10px solid rgba(221, 208, 41, .5);
 }
 
 .border--yellow {
