@@ -25,8 +25,14 @@
               = link_to 'Create a Community', new_community_path
       %form.navbar-form.navbar-left{:role => "search"}
         .form-group
-          %input.form-control{:placeholder => "Search", :type => "text"}
-        %button.btn.btn-default{:type => "submit"} Submit
+        = form_tag communities_path, class: "form-inline", method: :get do
+          .form-group
+            = text_field_tag :query, params[:query], class: "form-control"
+          = submit_tag "Search", class: "btn btn-primary"
+          - if params[:query].present?
+            = link_to "clear", communities_path
+        /   %input.form-control{:placeholder => "Search", :type => "text"}
+        / %button.btn.btn-default{:type => "submit"} Submit
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
