@@ -5,7 +5,7 @@
         %span.sr-only Toggle navigation
         -3.times do
           %span.icon-bar
-      %a.navbar-brand{:href => root_path} 
+      %a.navbar-brand{:href => root_path}
         = image_tag 'logo.png', class: 'icon-image'
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
@@ -13,27 +13,16 @@
           %a{:href => "#"}
             Link
             %span.sr-only (current)
-        %li
-          = link_to 'Join a Community', new_membership_path
-        %li
-          = link_to 'Create a Community', new_community_path
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Dropdown
+            Communities
             %span.caret
           %ul.dropdown-menu{:role => "menu"}
             %li
-              %a{:href => "#"} Action
-            %li
-              %a{:href => "#"} Another action
-            %li
-              %a{:href => "#"} Something else here
+              = link_to 'Join a Community', new_membership_path
             %li.divider
             %li
-              %a{:href => "#"} Separated link
-            %li.divider
-            %li
-              %a{:href => "#"} One more separated link
+              = link_to 'Create a Community', new_community_path
       %form.navbar-form.navbar-left{:role => "search"}
         .form-group
           %input.form-control{:placeholder => "Search", :type => "text"}

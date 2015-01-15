@@ -1,4 +1,4 @@
-%p 
+%p
   = "Welcome #{current_user.first_name}!"
 
 #user_info.panel.panel-default
@@ -11,24 +11,6 @@
     = "ROLES:"
     - current_user.roles.each do |role|
       %span.label.label-info
-        = role.name 
+        = role.name
 
-#edit_user_info.modal.fade
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %button.close{ data: { dismiss: "modal"} }
-        %span.pull-right{ "aria-hidden" => "true" }
-          = fa_icon("times")
-        %span.sr-only 
-          = "Close"
-        .modal-title
-          %h3
-            = "User Information"
-        .modal-body
-          = render 'users/profile/form'
-        .modal-footer
-          .btn.btn-default{ data: { dismiss: "modal" } }
-            = "Close"
-          .btn.btn-primary
-            ="Save changes"
+= render 'users/profile/edit_role'
