@@ -13,6 +13,17 @@
       %span.label.label-info
         = role.name 
 
+#community.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      ="Communities"
+  .panel-body
+    = "Communities:"
+    - current_user.memberships.each do |membership|
+      %ul
+        %li
+          = link_to "#{membership.community.name}", community_path(membership.community)
+
 #edit_user_info.modal.fade
   .modal-dialog
     .modal-content

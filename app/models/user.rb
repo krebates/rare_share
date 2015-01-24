@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :roles
   has_many :memberships
   has_many :communities, through: :memberships
+  has_many :posts
 
 
   devise :database_authenticatable, :registerable,
