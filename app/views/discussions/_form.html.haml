@@ -1,0 +1,7 @@
+= simple_form_for discussion, url: community_discussions_path(@community) do |f|
+  = f.input :title
+  = f.input :subject
+  .modal-footer
+    .btn.btn-default{ data: { dismiss: 'modal' } }
+      = 'Close'
+    = f.submit 'Start Discussion', class: 'btn btn-primary'

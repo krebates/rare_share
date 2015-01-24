@@ -23,11 +23,9 @@ class MembershipsController < ApplicationController
     end
   end
 
-private
+  private
 
-def membership_params
-  params.require(:membership).permit(:community_id, :user_id)
-end
-
-
+  def membership_params
+    params.require(:membership).permit(:community_id, :user_id)
+  end
 end

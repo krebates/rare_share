@@ -1,0 +1,25 @@
+= @discussion.title
+
+= link_to "New Post", "#new_comment", { data: { target: '#new_comment', toggle: 'modal' } } 
+
+
+#new_comment.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %span.pull-right{ "aria-hidden" => "true", data: { dismiss: "modal"} }
+          = fa_icon("times")
+        %span.sr-only 
+          = "Close"
+        .modal-title
+          %h3
+            = "Create a Discussion Post"
+        .modal-body
+          = render partial: 'posts/form'
+
+- if @discussion.posts.present?
+  - @discussion.posts.each do |post|
+    %ul
+      %li
+        = "#{current_user.first_name}: #{post.body}"
+
