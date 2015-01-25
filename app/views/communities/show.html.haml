@@ -19,8 +19,16 @@
               = link_to "#{discussion.title}", community_discussion_path(@community, discussion)
             .media-body
               = "Subject: #{discussion.subject}"
-
-
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title
+        = "Community Members"
+    .panel-body
+      - @community.members.map do |member|
+        %ul
+          %li
+            = member.first_name
+      
   #new_discussion.modal.fade
     .modal-dialog
       .modal-content
