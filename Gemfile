@@ -7,6 +7,9 @@ gem 'jquery-rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'pg'
 
+#static-pages
+gem 'high_voltage'
+
 #frontend
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'uglifier', '>= 1.3.0'
@@ -18,6 +21,7 @@ gem 'font-awesome-rails'
 
 #security
 gem 'devise'
+gem 'cancancan', '~> 1.10'
 
 #search
 gem 'searchkick'
@@ -29,6 +33,9 @@ group :development, :test do
   gem 'better_errors'
   gem 'capybara'
   gem 'binding_of_caller'
+  gem 'factory_girl_rails'
+  gem 'faker', '~> 1.4.3'
+  gem 'rspec-mocks', '~> 3.1.3'
 end
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

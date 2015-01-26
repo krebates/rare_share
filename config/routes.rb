@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  resources :communities
+  resources :communities do
+    resources :discussions
+  end
+
   resources :memberships
+  resources :posts
 end

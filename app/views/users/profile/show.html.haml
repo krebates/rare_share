@@ -13,4 +13,33 @@
       %span.label.label-info
         = role.name
 
-= render 'users/profile/edit_role'
+#community.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      ="Communities"
+  .panel-body
+    = "Communities:"
+    - current_user.memberships.each do |membership|
+      %ul
+        %li
+          = link_to "#{membership.community.name}", community_path(membership.community)
+
+#edit_user_info.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{ data: { dismiss: "modal"} }
+        %span.pull-right{ "aria-hidden" => "true" }
+          = fa_icon("times")
+        %span.sr-only 
+          = "Close"
+        .modal-title
+          %h3
+            = "User Information"
+        .modal-body
+          = render 'users/profile/form'
+        .modal-footer
+          .btn.btn-default{ data: { dismiss: "modal" } }
+            = "Close"
+          .btn.btn-primary
+            ="Save changes"

@@ -1,1 +1,43 @@
-= @community.name
+%h1
+  = @community.name
+%h4
+  = fa_icon('pencil-square-o')
+  = link_to "Start a New Discussion", "#new_discussion", { data: { target: '#new_discussion', toggle: 'modal' } }
+
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      = "Community Discussions"
+  .panel-body
+    - @community.discussions.each do |discussion|
+      .media
+        .media-left
+          = fa_icon 'user 2x'
+        .media-body
+          %h4.media-heading
+            = link_to "#{discussion.title}", community_discussion_path(@community, discussion)
+          .media-body
+            = "Subject: #{discussion.subject}"
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      = "Community Members"
+  .panel-body
+    - @community.members.map do |member|
+      %ul
+        %li
+          = member.first_name
+    
+#new_discussion.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %span.pull-right{ "aria-hidden" => "true", data: { dismiss: "modal"} }
+          = fa_icon("times")
+        %span.sr-only
+          = "Close"
+        .modal-title
+          %h3
+            = "User Information"
+        .modal-body
+          = render partial: 'discussions/form', locals: { discussion: @discussion }
