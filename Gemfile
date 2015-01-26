@@ -21,6 +21,7 @@ gem 'font-awesome-rails'
 
 #security
 gem 'devise'
+gem 'cancancan', '~> 1.10'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

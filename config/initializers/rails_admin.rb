@@ -4,8 +4,9 @@ RailsAdmin.config do |config|
 
   ## == Devise ==
   config.authenticate_with do
-    warden.authenticate! scope: :user
+    redirect_to main_app.root_path unless current_user.title == "admin" 
   end
+
   config.current_user_method(&:current_user)
 
   ## == Cancan ==

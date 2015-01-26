@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  TITLES = %i[admin, expert]
+
   def user_roles
     return unless roles.any?
     roles.map(&:name)
