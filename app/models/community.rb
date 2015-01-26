@@ -1,4 +1,6 @@
 class Community < ActiveRecord::Base
+  searchkick
+
   has_many :memberships
   has_many :users, through: :memberships
   has_many :discussions

@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20150126030328) do
     t.string   "first_name"
     t.string   "last_name"
     t.date     "dob"
+    t.string   "username"
     t.string   "title"
   end
 

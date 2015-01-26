@@ -23,6 +23,9 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'cancancan', '~> 1.10'
 
+#search
+gem 'searchkick'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'pry'

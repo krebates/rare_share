@@ -1,4 +1,4 @@
-%p 
+%p
   = "Welcome #{current_user.first_name}!"
 
 #user_info.panel.panel-default
@@ -11,7 +11,7 @@
     = "ROLES:"
     - current_user.roles.each do |role|
       %span.label.label-info
-        = role.name 
+        = role.name
 
 #community.panel.panel-default
   .panel-heading

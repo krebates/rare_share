@@ -1,7 +1,11 @@
 class CommunitiesController < ApplicationController
 
   def index
-    @communities = Community.all
+    if params[:query].present?
+      @communities = Community.search(params[:query])
+    else
+      @communities = Community.all
+    end
   end
 
   def show
