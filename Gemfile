@@ -7,6 +7,9 @@ gem 'jquery-rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'pg'
 
+#static-pages
+gem 'high_voltage'
+
 #frontend
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'uglifier', '>= 1.3.0'

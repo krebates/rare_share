@@ -1,7 +1,6 @@
-.container
-  .row
-    %h3 Communities
-    .column
-      - @communities.each do |community|
-        %td
-        = link_to community.name, community
+.row
+  %h3 Communities
+  .column
+    - @communities.each do |community|
+      %td
+      = link_to community.name, community
