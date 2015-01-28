@@ -1,0 +1,15 @@
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      = "Community Members"
+      .pull-right
+        = link_to "View All", memberships_path(community_id: @community.id)
+  .panel-body
+    .row
+      - @community.recent_members(6).each do |member|
+        .col-md-4.padding--small--vertical
+          = image_tag("default_avatar.png", size: "100x100")
+          .text-center
+            %strong
+              = member.first_name
+

@@ -1,0 +1,9 @@
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      = "Community Members"
+  .panel-body
+    - @memberships.map do |member|
+      %ul
+        %li
+          = member.user.first_name
