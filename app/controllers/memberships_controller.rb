@@ -1,7 +1,8 @@
 class MembershipsController < ApplicationController
 
   def index
-    @membership = Membership.all
+    @community = Community.find(params[:community_id])
+    @memberships = @community.memberships
     @user = current_user
   end
 

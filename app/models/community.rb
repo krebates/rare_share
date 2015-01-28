@@ -10,4 +10,11 @@ class Community < ActiveRecord::Base
     end
   end
 
+  def recent_members(number_of_members)
+    if members.count < number_of_members
+      members
+    else
+      members.last(number_of_members)
+    end
+  end
 end

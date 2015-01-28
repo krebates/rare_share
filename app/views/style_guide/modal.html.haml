@@ -1,0 +1,19 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      %span.pull-right{ data: { dismiss: "modal" }, aria: { hidden: "true" } }
+        = fa_icon("times")
+      - if content_for?(:modal_title)
+        %h3.modal-title
+          = yield :modal_title
+          - if content_for?(:modal_subtitle)
+            %small
+              = yield :modal_subtitle
+      - if content_for?(:modal_note)
+        %h4
+          = yield :modal_note
+
+    .modal-body
+      - if content_for?(:modal_body)
+        = yield :modal_body
+        

@@ -1,1 +1,4 @@
-= render "communities"
+= simple_form_for(@community) do |f|
+  = f.input :name
+  = f.button :submit
+

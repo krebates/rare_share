@@ -1,0 +1,18 @@
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      = "Community Discussions"
+      = link_to "Start a New Discussion", "#new_discussion", { data: { target: '#new_discussion', toggle: 'modal' }, class: 'pull-right' }
+
+  .panel-body
+    - @community.discussions.each do |discussion|
+      .media
+        .media-left
+          = image_tag("default_avatar.png", size: "50x50")
+        .media-body
+          %h4.media-heading
+            = link_to "#{discussion.title}", community_discussion_path(@community, discussion)
+          .media-body
+            = "Subject: #{discussion.subject}"
+
+= render partial: 'discussions/form'
