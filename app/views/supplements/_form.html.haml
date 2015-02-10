@@ -1,0 +1,9 @@
+= simple_form_for @supplement, url: community_supplements_path(@community) do |f|
+  = f.input :title
+  = f.input :description
+  = f.input :link
+  .modal-footer
+    .btn.btn-default{ data: { dismiss: 'modal' } }
+      = 'Close'
+    = f.submit 'Add Resource', class: 'btn btn-primary'
+

@@ -11,6 +11,7 @@ class CommunitiesController < ApplicationController
   def show
     @community = Community.find(params[:id])
     @discussion = Discussion.new
+    @supplement = Supplement.new
   end
 
   def new
