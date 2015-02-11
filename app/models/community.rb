@@ -4,9 +4,15 @@ class Community < ActiveRecord::Base
   has_many :discussions
   searchkick
 
-  def members
+   def members
     memberships.map do |membership|
       User.find(membership.user_id)
+    end
+  end
+
+  def member_names
+    members.map do |member|
+      member.name
     end
   end
 
