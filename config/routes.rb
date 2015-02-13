@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :supplements
   end
 
+  resources :conversations do
+    resources :replies, only: [:new, :create], module: :conversation
+  end
+
   resources :memberships
   resources :posts
 end

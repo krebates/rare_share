@@ -1,6 +1,8 @@
 %p
   = "Welcome #{current_user.first_name}!"
 
+= link_to "Message Inbox", new_conversation_path
+
 #user_info.panel.panel-default
   .panel-heading
     %h3.panel-title
@@ -29,8 +31,8 @@
     .modal-content
       .modal-header
         %button.close{ data: { dismiss: "modal"} }
-        %span.pull-right{ "aria-hidden" => "true" }
-          = fa_icon("times")
+          %span.pull-right{ "aria-hidden" => "true" }
+            = fa_icon("times")
         %span.sr-only 
           = "Close"
         .modal-title
