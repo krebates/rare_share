@@ -2,6 +2,9 @@ class Community < ActiveRecord::Base
   has_many :memberships
   has_many :users, through: :memberships
   has_many :discussions
+  has_many :supplements
+
+  #include in model to be searchable
   searchkick
 
   def members
