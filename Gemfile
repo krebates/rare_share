@@ -22,6 +22,7 @@ gem 'haml'
 gem 'simple_form'
 gem 'rails_admin'
 gem 'font-awesome-rails'
+gem 'rails_12factor', group: :production
 
 #security
 gem 'devise'
