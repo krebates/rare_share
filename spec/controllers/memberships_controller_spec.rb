@@ -6,6 +6,7 @@ describe MembershipsController do
   let(:membership) { double(:membership) }
   let(:current_user) { double(:current_user) }
   let(:params) { { id: "1" } }
+  let(:community)
 
   before do
     sign_in user
@@ -13,13 +14,15 @@ describe MembershipsController do
 
   describe "#index" do
     before do
+      allow(Community).to receive(:find).with(params[:community_id]).and_return(community)
       allow(Membership).to receive(:all) { [membership] }
+
       allow(controller).to receive(:render)
     end
 
     it "assigns the instance variables" do
       get :index
-      expect(assigns(:membership)).to eq([membership])
+      expect(assigns(:memberships)).to eq([membership])
     end
   end
 
@@ -48,7 +51,7 @@ describe MembershipsController do
       expect(assigns(:membership)).to eq(membership)
     end
   end
-  
+
   # describe "#create" do
     # let(:params) { { id: "1" } }
 
