@@ -10,7 +10,7 @@
           = "Send Message to #{@user.name}"
         .modal-body
           = simple_form_for :conversation, url: :conversations do |f|
-            = f.input :recipient_id, as: :hidden, value: @user.id
+            = f.input :recipient_id, as: :hidden, input_html: { value: @user.id }
             .form-group
               = f.input :subject, input_html: { class: 'form-control' }
             .form-group

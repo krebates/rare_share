@@ -3,5 +3,15 @@
     = 'Posts'
   .panel-body
     - @user.posts.each do |post|
-      = link_to post.discussion.title, discussion_path(post.discussion.id)
-      = post.body
+      .row
+        .col-md-3
+          %strong
+            Discussion Title:
+        .col-md-3
+          = link_to post.discussion.title, discussion_path(post.discussion.id)
+        .col-md-3
+          %strong
+            Post:
+        .col-md-3
+          = post.body.truncate(50)
+      %hr

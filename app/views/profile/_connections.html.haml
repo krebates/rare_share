@@ -6,7 +6,7 @@
     = 'Connections'
     .pull-right
       - if can? :manage, @user
-        = link_to fa_icon("pencil"), '#edit_bio', options
+        = link_to 'Connection Requests', '#edit_bio', options
   .panel-body
     - @user.connection_names.each do |connection_name|
       %p

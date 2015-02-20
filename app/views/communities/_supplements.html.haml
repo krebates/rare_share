@@ -1,0 +1,32 @@
+= render partial: "communities/modals/new_supplement"
+
+.panel.panel-default
+  .panel-heading
+    .pull-right
+      = link_to "#new_supplement", { data: { target: '#new_supplement', toggle: 'modal' } } do
+        = fa_icon('plus')
+        = "Add Resource"
+    .panel-title
+      = "Community Resources"
+  .panel-body
+    %table{width: '100%'}
+      %thead
+        %th
+          = "Title"
+        %th
+          = "Description"
+        %th
+          = "Link"
+        %th
+          = "Date Added"
+      %tbody
+        - @community.supplements.each do |supplement|
+          %tr
+            %td
+              = link_to supplement.title, community_supplement_path(@community, supplement)
+            %td
+              = supplement.description
+            %td
+              = supplement.link
+            %td
+              = supplement.created_at.strftime("%m/%d/%Y")

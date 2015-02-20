@@ -5,7 +5,6 @@ class ProfileController < ApplicationController
   end
 
   def update
-    binding.pry
     @user = User.find(params[:id])
     update_roles(@user) if user_params[:roles].present?
     @user.update_attributes(user_params.except(:roles))

@@ -10,14 +10,6 @@
     %div
       Currently waiting confirmation for: #{resource.unconfirmed_email}
   %div
-    = f.label :first_name
-    %br/
-    = f.text_field :first_name, value: "#{current_user.first_name}"
-  %div
-    = f.label :last_name
-    %br/
-    = f.text_field :last_name, value: "#{current_user.last_name}"
-  %div
     = f.label :username
     %br/
     = f.text_field :username, value: "#{current_user.username}"
@@ -25,6 +17,11 @@
     = f.label :dob
     %br/
     = f.date_field :dob, value: "#{current_user.dob}"
+  %div
+    = f.label :current_password
+    %i (we need your current password to confirm your changes)
+    %br/
+    = f.password_field :current_password, autocomplete: "off"
   %div
     = f.label :password
     %i (leave blank if you don't want to change it)
@@ -34,11 +31,6 @@
     = f.label :password_confirmation
     %br/
     = f.password_field :password_confirmation, autocomplete: "off"
-  %div
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "off"
   %div= f.submit "Update"
 %h3 Cancel my account
 %p
