@@ -3,13 +3,15 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  USERS = { "user" => "secret" }
+  USERS = { "rareshare" => "Rareshare2015!!" }
 
   before_filter :authenticate
 
   def authenticate
-    authenticate_or_request_with_http_digest("Application") do |name|
-      USERS[name]
+    if Rails.env.production?
+      authenticate_or_request_with_http_digest("Application") do |name|
+        USERS[name]
+      end
     end
   end
 end

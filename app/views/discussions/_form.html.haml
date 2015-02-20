@@ -2,7 +2,8 @@
   = "User Information"
 
 - content_for(:modal_body) do
-  = simple_form_for @discussion, url: community_discussions_path(@community) do |f|
+  = simple_form_for :discussion, url: discussions_path do |f|
+    = f.input :community_id, as: :hidden, input_html: { value: @community.id }
     = f.input :title
     = f.input :subject
     .modal-footer

@@ -1,0 +1,8 @@
+%p
+  %h4
+    ="My Communities"
+%p
+  - @user.memberships.each do |membership|
+    %ul.list-unstyled
+      %li
+        = link_to "#{membership.community.name}", community_path(membership.community)

@@ -21,7 +21,8 @@ gem 'autoprefixer-rails'
 gem 'haml'
 gem 'simple_form'
 gem 'rails_admin'
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', '~> 4.3.0.0'
+gem 'rails_12factor', group: :production
 
 #security
 gem 'devise'

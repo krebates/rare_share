@@ -40,7 +40,7 @@
           = fa_icon 'user 2x'
         .media-body
           %h4.media-heading
-            = link_to "#{discussion.title}", community_discussion_path(@community, discussion)
+            = link_to "#{discussion.title}", discussion_path(discussion)
           .media-body
             = "Subject: #{discussion.subject}"
 

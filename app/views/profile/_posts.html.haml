@@ -1,0 +1,7 @@
+.panel.panel-default.target
+  .panel-heading
+    = 'Posts'
+  .panel-body
+    - @user.posts.each do |post|
+      = link_to post.discussion.title, discussion_path(post.discussion.id)
+      = post.body
