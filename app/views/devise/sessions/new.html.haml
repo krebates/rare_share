@@ -16,7 +16,7 @@
           .input-group{:style => "margin-bottom: 25px"}
             %span.input-group-addon
               %i.glyphicon.glyphicon-lock
-            = f.password_field :password_confirmation, id: "login-password", class: "form-control"
+            = f.password_field :password, id: "login-password", class: "form-control"
 
           - if devise_mapping.rememberable?
             .input-group
