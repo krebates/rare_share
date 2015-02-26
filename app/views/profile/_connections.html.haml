@@ -1,0 +1,13 @@
+- options = { data: { target: '#edit_connections', toggle: "modal" } }
+= render partial: 'profile/modals/edit_connections'
+
+.panel.panel-default.target
+  .panel-heading
+    = 'Connections'
+    .pull-right
+      - if can? :manage, @user
+        = link_to 'Connection Requests', '#edit_bio', options
+  .panel-body
+    - @user.connection_names.each do |connection_name|
+      %p
+        = connection_name

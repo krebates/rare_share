@@ -1,0 +1,25 @@
+- content_for(:modal_title) do
+  = "User Information"
+
+- content_for(:modal_body) do
+  = simple_form_for @user, url: profile_path do |f|
+    = f.input :roles,
+      include_hidden: false,
+      collection: profile_presenter.roles,
+      wrapper_html: { class: 'form-group' },
+      as: :check_boxes,
+      checked: @user.roles.map(&:id)
+
+    = f.input :city, input_html: {value: @user.city}
+    = f.input :state, input_html: { value: @user.state }
+
+    = f.input :first_name, input_html: { value: @user.first_name}
+    = f.input :last_name, input_html: { value: @user.last_name }
+
+    .modal-footer
+      = form_buttons(f, submit_text: "Save changes")
+
+#edit_user_info.modal.fade
+  = render template: "style_guide/modal"
+
+

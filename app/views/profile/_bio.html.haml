@@ -1,0 +1,14 @@
+- options = { data: { target: '#edit_bio', toggle: "modal" } }
+= render partial: 'profile/modals/edit_bio'
+
+.panel.panel-default
+  .panel-heading
+    .pull-right
+      - if can? :manage, @user
+        = link_to fa_icon("pencil"), '#edit_bio', options
+    .panel-title
+      = "Bio"
+  .panel-body
+    = @user.bio
+
+

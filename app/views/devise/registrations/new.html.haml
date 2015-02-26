@@ -4,10 +4,10 @@
     = simple_form_for @user, url: user_registration_path do |f|
       = devise_error_messages!
       %div
-        = f.input :first_name, autofocus: true
-        = f.input :last_name, autofocus: true
         = f.input :username, autofocus: true
         = f.input :email, autofocus: true
+        = f.input :first_name, autofocus: true
+        = f.input :last_name, autofocus: true
         = f.input :dob, autofocus: true, as: :date
         = f.input :password
         - if @validatable

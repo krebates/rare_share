@@ -1,0 +1,16 @@
+- content_for(:modal_title) do
+  = "Send Message"
+
+- content_for(:modal_body) do
+  = simple_form_for :conversation, url: :conversations do |f|
+    = f.input :recipient_id, collection: current_user.communities.map(&:members).flatten, label_method: :name, value_method: :id
+    = f.input :subject
+    = f.input :body, as: :text
+    .form-actions
+      = f.button :submit, "Send", class: 'btn-primary'
+      = f.button :submit, 'Cancel', type: :reset, class: 'btn-danger'
+
+#new_conversation.modal.fade
+  = render template: "style_guide/modal" 
+
+

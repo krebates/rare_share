@@ -14,7 +14,6 @@ ROLES = [
   { name: "Physician", id: 3 },
   { name: "Nurse", id: 4 },
   { name: "Scientist", id: 5 },
-  { name: "No Role Specified", id: 6 },
 ]
 
 ROLES.each do |role_attribute|

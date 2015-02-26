@@ -95,7 +95,7 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
-    font-awesome-rails (4.2.0.0)
+    font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
     foreigner (1.7.2)
       activerecord (>= 3.0.0)
@@ -113,7 +113,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.3)
       railties (>= 3.2.16)
-    json (1.8.1)
+    json (1.8.2)
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -130,7 +130,7 @@ GEM
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.1)
-    minitest (5.5.0)
+    minitest (5.5.1)
     multi_json (1.10.1)
     multipart-post (2.0.0)
     nested_form (0.3.2)
@@ -146,7 +146,7 @@ GEM
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
       rack (~> 1.1)
-    rack-test (0.6.2)
+    rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.1.7)
       actionmailer (= 4.1.7)
@@ -164,7 +164,7 @@ GEM
     rails_admin (0.6.5)
       builder (~> 3.1)
       coffee-rails (~> 4.0)
-      font-awesome-rails (>= 3.0, < 5)
+      font-awesome-rails (>= 4.3.0.0, < 5)
       haml (~> 4.0)
       jquery-rails (~> 3.0)
       jquery-ui-rails (~> 5.0)
@@ -260,7 +260,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faker (~> 1.4.3)
-  font-awesome-rails
+  font-awesome-rails (~> 4.3.0.0)
   haml
   high_voltage
   jbuilder (~> 2.0)

@@ -1,0 +1,19 @@
+%ul.list-unstyled
+  %li.text-right.margin--small--top
+    .pull-left
+      = "Joined"
+    %p
+      = @user.joined_at
+  %li.text-right
+    .pull-left
+      = "Roles"
+    - if @user.roles.present?
+      - @user.roles.each do |role|
+        %span.label.label-info
+          = role.name
+    - else
+      = profile_presenter.blank_state
+  %li.text-right
+    .pull-left
+      = "Location"
+    = profile_presenter.location

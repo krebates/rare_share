@@ -11,5 +11,5 @@
           = image_tag("default_avatar.png", size: "100x100")
           .text-center
             %strong
-              = member.first_name
+              = link_to member.name, profile_path(member)
 

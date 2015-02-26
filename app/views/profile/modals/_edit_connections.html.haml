@@ -1,0 +1,26 @@
+#edit_connections.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %span.pull-right{ data: { dismiss: "modal" }, aria: { hidden: "true" } }
+          = fa_icon("times")
+        %span.sr-only
+          = "Close"
+        %h3.modal-title
+          = "Connection Requests"
+        .modal-body
+          %h4
+            Users who have connected with you:
+          %p
+            (note: If you already have a connection with them, they will not show up here)
+
+          - Connection.connections_with_user(@user).each do |connection|
+            %ul.list-unstyled
+              %li
+                = connection.pending_connections(@user, connection)
+                - if connection.pending_connections(@user, connection).present?
+                  = link_to "Connect", connections_path(connect_id: connection.user_id), method: :post, class: 'btn btn-primary'
+            
+
+
+

@@ -1,12 +1,6 @@
-- content_for(:modal_title) do
-  = "User Information"
-
-- content_for(:modal_body) do
-  = simple_form_for @discussion, url: community_discussions_path(@community) do |f|
-    = f.input :title
-    = f.input :subject
-    .modal-footer
-      = form_buttons(f, submit_text: "Start Discussion")
-
-#new_discussion.modal.fade
-  = render template: "style_guide/modal"
+= simple_form_for :discussion, url: discussions_path do |f|
+  = f.input :community_id, as: :hidden, input_html: { value: @community.id }
+  = f.input :title
+  = f.input :subject
+  .modal-footer
+    = form_buttons(f, submit_text: "Start Discussion")
