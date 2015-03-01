@@ -1,0 +1,30 @@
+%h3
+  = "What is #{@community.name}?"
+%p
+  = @community.description || "This community has not inputted a description."
+
+.row
+  .col-md-6
+    %h3
+      ="Community Statistics"
+
+    .media
+      .media-left
+        = image_tag('community-icon.png', class: 'media-object icon-image')
+      .media-body.media-middle
+        = "#{@community.members.count} community members"
+
+    .media
+      .media-left
+        = image_tag('discussion-icon.png', class: 'media-object icon-image')
+      .media-body.media-middle
+        = "#{@community.discussions.count} community discussions"
+
+    .media
+      .media-left
+        = image_tag('resource-icon.png', class: 'media-object icon-image')
+      .media-body.media-middle
+        = "#{@community.supplements.count} community resources"
+  .col-md-6
+    %h3
+      ="Synonms"
