@@ -16,3 +16,23 @@ a{
   background-color: #51BEAE !important; 
   border: none !important;
 }
+
+
+.community-nav > li.active {
+  border-width: 5px 0 5px 0 !important;
+  border-color: #D7CC2C !important;
+  border-style: solid !important;
+}
+
+.community-nav a:hover {
+  border-width: 5px 0 5px 0;
+  border-color: #D7CC2C;
+  border-style: solid;
+  background-color: white !important;
+}
+
+.community-nav a {
+  background-color: white !important;
+}
+
+

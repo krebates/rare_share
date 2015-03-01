@@ -1,32 +1,69 @@
-%h1
-  = @community.name
-%p
-= "This community is the best oh yea"
-%p
-= "Community Expert: Me"
-%p
-= @community.description
+%div{:role => "tabpanel"}
+  .row
+    .col-md-3
+      %ul.nav.community-nav{:role => "tablist"}
+        %li.active{:role => "presentation"}
+          %a{"aria-controls" => "community_home", "data-toggle" => "tab", :href => "#community_home", :role => "tab"} COMMUNITY HOME
+        %li{:role => "presentation"}
+          %a{"aria-controls" => "disorder_details", "data-toggle" => "tab", :href => "#disorder_details", :role => "tab"} DISORDER DETAILS
+        %li{:role => "presentation"}
+          %a{"aria-controls" => "discussion_forum", "data-toggle" => "tab", :href => "#discussion_forum", :role => "tab"} DISCUSSION FORUM
+        %li{:role => "presentation"}
+          %a{"aria-controls" => "disorder_resources", "data-toggle" => "tab", :href => "#disorder_resources", :role => "tab"} DISORDER RESOURCES
+        %li{:role => "presentation"}
+          %a{"aria-controls" => "community_leader", "data-toggle" => "tab", :href => "#community_leader", :role => "tab"} COMMUNITY LEADER
+        %li{:role => "presentation"}
+          %a{"aria-controls" => "communities_list", "data-toggle" => "tab", :href => "#communities_list", :role => "tab"} BACK TO COMMUNITIES LIST
+    .col-md-9
+      .tab-content
+        #community_home.tab-pane.active{:role => "tabpanel"}
+          = render 'community_home'
 
-- if can? :manage, Community
-  = link_to "Update Community Information", "#new_disease_info", { data: { target: '#new_discussion', toggle: 'modal' } }
+        #disorder_details.tab-pane{:role => "tabpanel"}
+          ="um yea"
+        
+        #discussion_forum.tab-pane{:role => "tabpanel"} ...
 
-.row
-  .col-md-4
-    = render 'community_members'
-  .col-md-8
-    %h3
-      = "Description:"
-    %h3
-      = "Symptoms:"
-    %h3
-      = "Diagnosis:"
-    %h3
-      = "Prognosis:"
-    %h3
-      = "General Treatment:"
-    %h3
-      = "Causes:"
+        #disorder_resources.tab-pane{:role => "tabpanel"} ...
 
-    = render 'discussions'
-    = render 'supplements'
+        #community_leader.tab-pane{:role => "tabpanel"} ...
+
+        #communities_list.tab-pane{:role => "tabpanel"} ...
+
+
+
+
+
+
+-# %h1
+  -# = @community.name
+-# %p
+-# = "This community is the best oh yea"
+-# %p
+-# = "Community Expert: Me"
+-# %p
+-# = @community.description
+
+-# - if can? :manage, Community
+  -# = link_to "Update Community Information", "#new_disease_info", { data: { target: '#new_discussion', toggle: 'modal' } }
+
+-# .row
+  -# .col-md-4
+    -# = render 'community_members'
+  -# .col-md-8
+    -# %h3
+      -# = "Description:"
+    -# %h3
+      -# = "Symptoms:"
+    -# %h3
+      -# = "Diagnosis:"
+    -# %h3
+      -# = "Prognosis:"
+    -# %h3
+      -# = "General Treatment:"
+    -# %h3
+      -# = "Causes:"
+
+    -# = render 'discussions'
+    -# = render 'supplements'
 
