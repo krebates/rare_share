@@ -20,7 +20,8 @@
           = render partial: 'profile/modals/edit_user_info', locals: { profile_presenter: profile_presenter }
           = link_to fa_icon("pencil"), '#edit_user_info', data: { target: '#edit_user_info', toggle: 'modal' }
       .padding--medium.background--white
-        %img.img-rounded.img-responsive{:src => "http://www.rlsandbox.com/img/profile.jpg", :title => "profile image"}/
+        / # - @user.avatar.empty?
+        %img.img-rounded.img-responsive{:src => @user.avatar_url, :title => "profile image"}/
         = render 'ctas'
         %hr.margin--bottom--small
         = render partial: 'user_stats', locals: { profile_presenter: profile_presenter }

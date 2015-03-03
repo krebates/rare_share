@@ -24,6 +24,10 @@ gem 'rails_admin'
 gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'rails_12factor', group: :production
 
+#uploader
+gem 'carrierwave'
+gem 'mini_magick'
+
 #security
 gem 'devise'
 gem 'cancancan', '~> 1.10'
