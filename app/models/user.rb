@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  #uploader
+  mount_uploader :avatar, AvatarUploader
+
   TITLES = %i[admin, expert]
 
   def user_roles
@@ -36,7 +39,7 @@ class User < ActiveRecord::Base
   def has_location?
     city || state || country
   end
-      
+
   def joined_at
     created_at.strftime("%m/%d/%Y")
   end
