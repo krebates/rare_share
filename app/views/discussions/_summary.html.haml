@@ -1,0 +1,16 @@
+%h3
+  = "Discussion Forum"
+%P
+  = "You have to join the community to post in the discussion forum."
+
+.list-group
+  - @community.discussions.each do |discussion|
+    .list-group-item
+      %h4.list-group-item-heading 
+        %strong
+          = link_to "#{discussion.title}", discussion_path(discussion)
+      %p.list-group-item-text
+        = "Created by"
+        %strong
+          = link_to "#{discussion.author.name}", profile_path(discussion.author)
+        = "Last updated #{discussion.last_updated}"
