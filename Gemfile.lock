@@ -267,6 +267,7 @@ DEPENDENCIES
   high_voltage
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   letter_opener
   mailboxer
   mini_magick

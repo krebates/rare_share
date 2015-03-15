@@ -2,9 +2,9 @@ class CommunitiesController < ApplicationController
 
   def index
     if params[:query].present?
-      @communities = Community.search(params[:query])
+      @communities = Community.search(params[:query]).page params[:page]
     else
-      @communities = Community.all
+      @communities = Community.all.page params[:page]
     end
   end
 

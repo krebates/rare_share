@@ -10,6 +10,9 @@ class Community < ActiveRecord::Base
   #include in model to be searchable
   searchkick suggest: ["name"]
 
+  #include in model for pagination
+  paginates_per 100
+
    def members
     memberships.map do |membership|
       User.find(membership.user_id)

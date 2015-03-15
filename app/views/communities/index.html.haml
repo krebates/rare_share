@@ -13,3 +13,4 @@
               = "#{community.members.count} members"
               %p
               = community.description.truncate(100, separator: ' ')
+    = paginate @communities
