@@ -4,8 +4,14 @@ class Community < ActiveRecord::Base
   has_many :discussions
   has_many :supplements
 
+  validates :name, uniqueness: {scope: :user_id}, presence: true
+  validates :description, presence: true
+
   #include in model to be searchable
-  searchkick
+  searchkick suggest: ["name"]
+
+  #include in model for pagination
+  paginates_per 100
 
    def members
     memberships.map do |membership|
