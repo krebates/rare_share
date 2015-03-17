@@ -1,5 +1,6 @@
 = simple_form_for :discussion, url: discussions_path do |f|
   = f.input :community_id, as: :hidden, input_html: { value: @community.id }
+  = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
   = f.input :title
   = f.input :subject
   .modal-footer

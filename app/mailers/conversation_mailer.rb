@@ -5,7 +5,9 @@ class ConversationMailer
   end
 
   def send
-    current_user.send_message(recipient, body, subject)
+    recipients.each do |recipient|
+      current_user.send_message(recipient, body, subject)
+    end
   end
 
   def reply
@@ -18,8 +20,10 @@ class ConversationMailer
     Mailboxer::Conversation.find(conversation_params[:conversation_id].to_i)
   end
 
-  def recipient
-    User.find(conversation_params[:recipient_id])
+  def recipients
+    JSON.parse(conversation_params[:recipient_ids]).map do |recipient_id|
+      User.find(recipient_id.to_i)
+    end
   end
 
   def body

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :inverse_connections, class_name: "Connections", foreign_key: "connection_id"
   has_many :inverse_connects, through: :inverse_connections, source: :user
   has_many :posts
+  has_many :discussions
 
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true

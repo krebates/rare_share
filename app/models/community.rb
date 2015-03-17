@@ -19,10 +19,12 @@ class Community < ActiveRecord::Base
     end
   end
 
+  def leaders
+    members.select { |member| member.title == 'expert' }
+  end
+
   def member_names
-    members.map do |member|
-      member.name
-    end
+    members.map { |member| member.name }
   end
 
   def recent_members(number_of_members)

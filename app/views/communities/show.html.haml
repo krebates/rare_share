@@ -21,28 +21,36 @@
 
         #disorder_details.tab-pane{:role => "tabpanel"}
           ="um yea"
-        
-        #discussion_forum.tab-pane{:role => "tabpanel"} ...
 
-        #disorder_resources.tab-pane{:role => "tabpanel"} ...
+        #discussion_forum.tab-pane{:role => "tabpanel"}
+          = render 'discussions/index'
 
-        #community_leader.tab-pane{:role => "tabpanel"} ...
+        #disorder_resources.tab-pane{:role => "tabpanel"}
+          = render 'supplements'
 
-        #communities_list.tab-pane{:role => "tabpanel"} ...
+        #community_leader.tab-pane{:role => "tabpanel"}
+
+        #communities_list.tab-pane{:role => "tabpanel"}
+
+%hr
+
+.row
+  .col-md-3.margin--medium--top
+    = render partial: 'left_rail_ctas'
+  .col-md-9
+    .margin--medium--top
+      = render partial: 'community_leaders'
+    .margin--medium--top
+      = render partial: 'discussions/summary'
+
+%hr.margin--medium--top
+
+= render partial: 'shared/footer_ctas'
 
 
 
 
 
-
--# %h1
-  -# = @community.name
--# %p
--# = "This community is the best oh yea"
--# %p
--# = "Community Expert: Me"
--# %p
--# = @community.description
 
 -# - if can? :manage, Community
   -# = link_to "Update Community Information", "#new_disease_info", { data: { target: '#new_discussion', toggle: 'modal' } }
@@ -64,6 +72,4 @@
     -# %h3
       -# = "Causes:"
 
-    -# = render 'discussions'
-    -# = render 'supplements'
 

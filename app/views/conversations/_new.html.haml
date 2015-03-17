@@ -3,7 +3,7 @@
 
 - content_for(:modal_body) do
   = simple_form_for :conversation, url: :conversations do |f|
-    = f.input :recipient_id, collection: current_user.communities.map(&:members).flatten, label_method: :name, value_method: :id
+    = f.input :recipient_ids, collection: current_user.communities.map(&:members).flatten, label_method: :name, value_method: :id
     = f.input :subject
     = f.input :body, as: :text
     .form-actions
