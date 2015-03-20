@@ -39,4 +39,12 @@ a{
   background-color: white !important;
 }
 
+.list-group-item.list-group-item--border--bottom {
+  border-right: 0px !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
 

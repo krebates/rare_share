@@ -1,9 +1,67 @@
-/ # TODO
+.row
+  .col-md-3
+    %h4.border--gray--bottom.text--teal
+      = "YOUR COMMUNITIES"
+    %ul.list-group
+      - current_user.communities.each do |community|
+        %li.list-group-item.list-group-item--border--bottom
+          = link_to community.name, community_path(community)
+    %h4.text--teal.margin--large--top
+      = "NEWEST MEMBERS"
+    - recent_users(6).each do |user|
+      .row.margin--small--bottom
+        .col-md-4
+          - user_image = user.avatar.present? ? user.avatar : 'community-icon.png'
+          = image_tag user_image, class: 'icon-image--rounded'
+        .col-md-8
+          = user.name
+  .col-md-9
+    %h4.text--teal
+      = "RECENTLY IN YOUR COMMUNITIES"
+    .row
+      - current_user.communities.map(&:newest_discussions).each do |discussions|
+        - discussions.each do |discussion|
+          .col-md-1
+            - author_image = discussion.author.avatar.present? ? discussion.author.avatar : 'community-icon.png'
+            = image_tag author_image, class: 'icon-image--rounded'
+          .col-md-11
+            %strong
+              = discussion.title
+            %i
+              = "Created by #{discussion.author.name}"
+            %br
+              %small
+                = "Last updated #{time_ago_in_words(discussion.last_updated)} ago"
+            %br
+            %i
+              = "Community: #{discussion.community.name}"
+            - if discussion.posts.present?
+              .row.margin--small--top
+                - discussion.newest_posts.take(3).each do |post|
+                  .col-md-1
+                    - author_image = post.author.avatar.present? ? post.author.avatar : 'community-icon.png'
+                    = image_tag author_image, class: 'icon-image--rounded'
+                  .col-md-11
+                    %i
+                      = "Posted by"
+                      = link_to post.author.name, profile_path(post.author)
+                    %br
+                    %i
+                      %small
+                        = "#{time_ago_in_words(post.created_at)} ago"
+                    %p
+                      = post.body
+            .border--gray--top
+              .row
+                .margin--small--vertical
+                  .col-md-6
+                    = link_to "View Full Thread", discussion_path(discussion), class: 'text--teal'
+                  .col-md-6
+                  .col-md-6
 
-/ learn about communities
-
-/ my new messages
-
-/ new video
-
-/ new members
+              .margin--small--vertical
+                = simple_form_for :post, url: posts_path, method: :post do |f|
+                  = f.input :discussion_id, as: :hidden, input_html: { value: discussion.id }
+                  = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+                  = f.input :body, as: :text, label: false, input_html: { rows: 3, cols: 85, value: "Write a reply..." }
+                  = f.submit

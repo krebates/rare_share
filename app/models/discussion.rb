@@ -14,4 +14,8 @@ class Discussion < ActiveRecord::Base
       updated_at  
     end
   end
+
+  def newest_posts
+    posts.order('created_at DESC')
+  end
 end
