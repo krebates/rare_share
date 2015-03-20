@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  default_scope { order('created_at DESC') } 
   acts_as_messageable
   # before_action :authenticate_user!
   has_many :roles
@@ -25,6 +26,10 @@ class User < ActiveRecord::Base
   def user_roles
     return unless roles.any?
     roles.map(&:name)
+  end
+
+  def communities
+    memberships.map { |membership| membership.community }
   end
 
   def is_connected_to?(user)
