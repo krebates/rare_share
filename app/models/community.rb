@@ -34,4 +34,8 @@ class Community < ActiveRecord::Base
       members.last(number_of_members)
     end
   end
+  
+  def newest_discussions
+    discussions.order("created_at DESC")
+  end
 end
