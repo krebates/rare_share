@@ -1,16 +1,41 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  %div
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    %div
-      = f.check_box :remember_me
-      = f.label :remember_me
-  %div= f.submit "Log in"
-= render "devise/shared/links"
+.container
+  #loginbox.mainbox.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2{:style => "margin-top:50px;"}
+    .panel.panel-info
+      .panel-heading
+        .panel-title Sign In
+        %div{:style => "float:right; font-size: 80%; position: relative; top:-10px"}
+          %a{:href => "#"} Forgot password?
+      .panel-body{:style => "padding-top:30px"}
+        #login-alert.alert.alert-danger.col-sm-12{:style => "display:none"}
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .input-group{:style => "margin-bottom: 25px"}
+            %span.input-group-addon
+              %i.glyphicon.glyphicon-user
+            = f.email_field :email, id: "login-username", class: "form-control"
+
+          .input-group{:style => "margin-bottom: 25px"}
+            %span.input-group-addon
+              %i.glyphicon.glyphicon-lock
+            = f.password_field :password, id: "login-password", class: "form-control"
+
+          - if devise_mapping.rememberable?
+            .input-group
+              .checkbox
+                %label
+                  = f.check_box :remember_me, id: "login-remember", value: "1"
+                  Remember me
+
+
+          .form-group{:style => "margin-top:10px"}
+            Button
+            .col-sm-12.controls
+              = f.submit "Log In", id: "btn-login", class: "btn btn-primary"
+              / %a#btn-fblogin.btn.btn-primary{:href => "#"} Login with Facebook
+          .form-group
+            .col-md-12.control
+              %div{:style => "border-top: 1px solid#888; padding-top:15px; font-size:85%"}
+                Don't have an account!
+                %a{:href => "#", :onclick => "$('#loginbox').hide(); $('#signupbox').show()"}
+                  Sign Up Here
+  #signupbox.mainbox.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2{:style => "display:none; margin-top:50px"}
+    = render 'devise/registrations/new'

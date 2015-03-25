@@ -1,41 +1,60 @@
-= image_tag "banner.jpg", { class: "border--yellow--bottom banner" }
+/ # = image_tag "banner.jpg", { class: "border--yellow--bottom banner" }
 
-.margin--x-large--top
-  .row
-    .col-md-7
-      %h3
-        = "WHY RARE DISORDERS?"
-      %h4.margin--medium--top
-        = "Even though there are 7,000 known rare conditions, many of the 300 million affected patients around the globe feel along. RareShare was founded in 2008 to give these people and their loved ones a sense of community; a place to sympathize, celebrate, and share their experiences and expertise, together."
-      %h3.margin--medium--top
-        = "BENEFITS OF RARESHARE COMMUNITIES"
-      .margin--medium--top
-        .media
-          .media-left.media-middle
-            = fa_icon 'users 3x'
-          .media-body
-            %h4
-              = "Create a sense of community for those affected by rare disorders"
-        .media
-          .media-left.media-middle
-            = fa_icon 'comment-o 3x'
-          .media-body
-            %h4
-              = "Communicate with others that are affected by the same condition"
-        .media
-          .media-left.media-middle
-            = fa_icon 'comments-o 3x'
-          .media-body
-            %h4
-              = "Contribute condition-related information, experiences, support, and resources"
-    .col-md-3.pull-right.border--gray--left
-      .border--yellow.padding--small--horizontal
-        %h2
-          = "RARESHARE IN ACTION"
-        %p
-          = "Create a sense of community for those affected by rare disorders.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+%body.hello
+  #video_container
+    #text
+      #actions
+        #playbutton
+          .rectangle
+          .triangle
+    #cover_all
+    #main-image
+    #wistia_owawjnd21i.wistia_embed.backgroundVideo{:style => "width:920px;height:518px;"}
+    / #wistia_fji9juvptr.wistia_embed.overlayVideo{:style => "width:1920px;height:1080px;"}
+    #ex
+      %img{:height => "23", :src => "images/ex.svg", :width => "23"}/
 
-%p 
+/ .margin--x-large--top
+/   .row
+/     .col-md-7
+/       %h3
+/         = "WHY RARE DISORDERS?"
+/       %h4.margin--medium--top
+/         = "Even though there are 7,000 known rare conditions, many of the 300 million affected patients around the globe feel along. RareShare was founded in 2008 to give these people and their loved ones a sense of community; a place to sympathize, celebrate, and share their experiences and expertise, together."
+/       %h3.margin--medium--top
+/         = "BENEFITS OF RARESHARE COMMUNITIES"
+/       .margin--medium--top
+/         .media
+/           .media-left.media-middle
+/             = fa_icon 'users 3x'
+/           .media-body
+/             %h4
+/               = "Create a sense of community for those affected by rare disorders"
+/         .media
+/           .media-left.media-middle
+/             = fa_icon 'comment-o 3x'
+/           .media-body
+/             %h4
+/               = "Communicate with others that are affected by the same condition"
+/         .media
+/           .media-left.media-middle
+/             = fa_icon 'comments-o 3x'
+/           .media-body
+/             %h4
+/               = "Contribute condition-related information, experiences, support, and resources"
+/     .col-md-3.pull-right.border--gray--left
+/       .border--yellow.padding--small--horizontal
+/         %h2
+/           = "RARESHARE IN ACTION"
+/         %p
+/           = "Create a sense of community for those affected by rare disorders.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+
+%p
   = link_to "FAQ", page_path('faq')
+
+%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
+%script{:charset => "ISO-8859-1", :src => "https://fast.wistia.com/assets/external/E-v1.js"}
+%script{:charset => "ISO-8859-1", :src => "https://fast.wistia.com/labs/crop-fill/plugin.js"}
+%script{:src => "js/application.js"}
 
 -# = render 'about'
