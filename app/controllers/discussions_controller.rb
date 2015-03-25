@@ -16,7 +16,6 @@ class DiscussionsController < ApplicationController
   private
 
   def discussion_params
-    params.require(:discussion).permit(:title, :subject, :community_id)
+    params.require(:discussion).permit(:title, :subject, :user_id, :community_id, :created_at, :updated_at)
   end
-
 end

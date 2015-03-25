@@ -3,6 +3,7 @@
   .column
     - @communities.each do |community|
       %td
+      = link_to community.name, community
       .media
         .media-left.col-md-12
           .panel.panel-default
@@ -12,5 +13,6 @@
             .panel-body
               = "#{community.members.count} members"
               %p
-              = community.description.truncate(100, separator: ' ')
+              - if community.description.present?
+                = community.description.truncate(100, separator: ' ')
     = paginate @communities

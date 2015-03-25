@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :connections
 
+  resources :leader_requests, only: [:create]
+
   resources :conversations do
     resources :replies, only: [:new, :create], module: :conversation
   end

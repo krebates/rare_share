@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302042200) do
+ActiveRecord::Schema.define(version: 20150307184026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 20150302042200) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "prevalence"
+    t.string   "cause"
+    t.string   "diagnosis"
   end
 
   create_table "connections", force: true do |t|
@@ -29,9 +32,12 @@ ActiveRecord::Schema.define(version: 20150302042200) do
   end
 
   create_table "discussions", force: true do |t|
-    t.string  "title"
-    t.integer "community_id"
-    t.string  "subject"
+    t.string   "title"
+    t.integer  "community_id"
+    t.string   "subject"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: true do |t|
@@ -95,9 +101,11 @@ ActiveRecord::Schema.define(version: 20150302042200) do
   end
 
   create_table "posts", force: true do |t|
-    t.text    "body"
-    t.integer "user_id"
-    t.integer "discussion_id"
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "discussion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "roles", force: true do |t|
@@ -115,12 +123,12 @@ ActiveRecord::Schema.define(version: 20150302042200) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -130,9 +138,8 @@ ActiveRecord::Schema.define(version: 20150302042200) do
     t.string   "first_name"
     t.string   "last_name"
     t.date     "dob"
-    t.string   "username"
     t.string   "title"
-    t.boolean  "admin",                  default: false
+    t.string   "username"
     t.text     "bio"
     t.string   "city"
     t.string   "state"
