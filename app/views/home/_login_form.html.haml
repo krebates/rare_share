@@ -1,0 +1,14 @@
+= form_for User.new, as: :user, url: session_path(:user), method: :post, class: 'form-group' do |f|
+  .input-group{:style => "margin-bottom: 25px"}
+    %span.input-group-addon
+      %i.glyphicon.glyphicon-user
+    = f.email_field :email, id: "login-username", class: "form-control"
+
+  .input-group{:style => "margin-bottom: 25px"}
+    %span.input-group-addon
+      %i.glyphicon.glyphicon-lock
+    = f.password_field :password, id: "login-password", class: "form-control"
+
+  .form-group{:style => "margin-top:10px"}
+    .col-sm-12.controls
+      = f.submit "Log In", id: "btn-login", class: "btn btn-rareshare"

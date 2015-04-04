@@ -20,4 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  homepage:
+    title:
+      why_rare_disorders: Why Rare Disorders?
+      benefits_of_communities: Benefits of RareShare Communities 
+    body:
+      why_rare_disorders: Even though there are 7,000 known rare conditions, many of the 300 million affected patients around the globe feel along. RareShare was founded in 2008 to give these people and their loved ones a sense of community; a place to sympathize, celebrate, and share their experiences and expertise, together.
+      community: Create a sense of community for those affected by rare disorders
+      communicate: Communicate with others that are affected by the same condition
+      contribute: Contribute condition-related information, experiences, support, and resources
+
+  navigation:
+    sign_in: Sign In
+    register: Register 

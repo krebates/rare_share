@@ -1,5 +1,12 @@
-h3{
-  color: #47B19D !important;
+h4{
+  color: #4EBFAD !important;
+}
+.navbar.navbar-default li a{
+  line-height: 40px !important;
+}
+
+.nav.navbar-default {
+  height: 70px !important;
 }
 
 body h3:first-child {
@@ -12,12 +19,12 @@ a{
 
 .panel > .panel-heading{
   color: white !important;
-  background-color: #51BEAE !important; 
+  background-color: #4EBFAD !important; 
 }
 
 .btn.btn-primary{
   color: white !important;
-  background-color: #51BEAE !important; 
+  background-color: #4EBFAD !important; 
   border: none !important;
 }
 
@@ -43,8 +50,8 @@ a{
   border-right: 0px !important;
   border-top: 0px !important;
   border-left: 0px !important;
-  border-bottom-right-radius: 0px;
-  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
 }
 
 
