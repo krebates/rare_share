@@ -1,18 +1,19 @@
-.row
-  .col-md-12
-    %h2 Sign up
-    = simple_form_for @user, url: user_registration_path do |f|
-      = devise_error_messages!
-      %div
-        = f.input :username, autofocus: true
-        = f.input :email, autofocus: true
-        = f.input :first_name, autofocus: true
-        = f.input :last_name, autofocus: true
-        = f.input :dob, autofocus: true, as: :date
-        = f.input :password
-        - if @validatable
-          %i
-            (#{@minimum_password_length} characters minimum)
-        = f.input :password_confirmation
-        = f.submit "Sign up"
-    = render "devise/shared/links"
+.container
+  .row
+    .col-md-12
+      %h2 Sign up
+      = simple_form_for @user, url: user_registration_path do |f|
+        = devise_error_messages!
+        %div
+          = f.input :username, autofocus: true
+          = f.input :email, autofocus: true
+          = f.input :first_name, autofocus: true
+          = f.input :last_name, autofocus: true
+          = f.input :dob, autofocus: true, as: :date
+          = f.input :password
+          - if @validatable
+            %i
+              (#{@minimum_password_length} characters minimum)
+          = f.input :password_confirmation
+          = f.submit "Sign up"
+      = render "devise/shared/links"
