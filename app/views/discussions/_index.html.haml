@@ -1,22 +1,67 @@
 = render partial: "communities/modals/new_discussion"
 
-.panel.panel-default
-  .panel-heading
-    .pull-right
-      = link_to "#new_discussion", { data: { target: '#new_discussion', toggle: 'modal' }, class: 'pull-right' } do
-        = fa_icon('plus')
-        = "New Discussion"
-    .panel-title
-      = "Community Discussions"
+= link_to "#new_discussion", { data: { target: '#new_discussion', toggle: 'modal' }, class: 'pull-right' } do
+  = fa_icon('plus')
+  = "New Discussion"
+
+- @community.discussions.each do |discussion|
+  .col-md-1
+    - author_image = discussion.author.avatar.present? ? discussion.author.avatar : 'community-icon.png'
+    = image_tag author_image, class: 'icon-image--rounded'
+  .col-md-11
+    %strong
+      = discussion.title
+    %i
+      = "Created by #{discussion.author.name}"
+    %br
+      %small
+        = "Last updated #{time_ago_in_words(discussion.last_updated)} ago"
+    %br
+    - if discussion.posts.present?
+      .row.margin--small--top
+        - discussion.newest_posts.take(3).each do |post|
+          .col-md-1
+            - author_image = post.author.avatar.present? ? post.author.avatar : 'community-icon.png'
+            = image_tag author_image, class: 'icon-image--rounded'
+          .col-md-11
+            %i
+              = "Posted by"
+              = link_to post.author.name, profile_path(post.author)
+            %br
+            %i
+              %small
+                = "#{time_ago_in_words(post.created_at)} ago"
+            %p
+              = post.body
+    .border--gray--top
+      .row
+        .margin--small--vertical
+          .col-md-6
+            = link_to "View Full Thread", discussion_path(discussion), class: 'text--teal'
+          .col-md-6
+          .col-md-6
+
+      .margin--small--vertical
+        = simple_form_for :post, url: posts_path, method: :post do |f|
+          = f.input :discussion_id, as: :hidden, input_html: { value: discussion.id }
+          = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+          = f.input :body, as: :text, label: false, input_html: { rows: 3, cols: 85, value: "write a reply..." }
+          = f.submit
+
+-# .panel.panel-default
+-# .panel-heading
+  -# .pull-right
+  -# .panel-title
+    -# = "Community Discussions"
     
-  .panel-body
-    - @community.discussions.each do |discussion|
-      .media
-        .media-left
-          = fa_icon 'user 2x'
-        .media-body
-          %h4.media-heading
-            = link_to "#{discussion.title}", discussion_path(discussion)
-          .media-body
-            = "Subject: #{discussion.subject}"
+  -# .panel-body
+    -# - @community.discussions.each do |discussion|
+      -# .media
+        -# .media-left
+          -# = fa_icon 'user 2x'
+        -# .media-body
+          -# %h4.media-heading
+            -# = link_to "#{discussion.title}", discussion_path(discussion)
+          -# .media-body
+            -# = "Subject: #{discussion.subject}"
 

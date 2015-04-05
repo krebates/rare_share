@@ -1,40 +1,126 @@
 - profile_presenter = ProfilePresenter.new(@user)
+= render "shared/user_header"
+- user_avatar = current_user.avatar.present? ? current_user.avatar : "community-icon.png" 
 
-.row
-  .col-md-6
-    %h2
-      = @user.name
-  .col-md-6
+.container
+  %p
     - if can? :manage, @user
-      .pull-right
-        = link_to conversations_path, class: 'btn btn-primary' do
-          = fa_icon 'envelope-o'
-          = "My Inbox"
+      = link_to '#edit_profile_image', data: { target: '#edit_profile_image', toggle: 'modal' } do
+        = fa_icon('pencil')
+        = "Edit profile image"
+      = render partial: "profile/modals/edit_profile_image"
+  %p
+    - if can? :manage, @user
+      = link_to '#edit_cover_image', data: { target: '#edit_cover_image', toggle: 'modal' } do
+        = fa_icon('pencil')
+        = "Edit cover image"
+      = render partial: "profile/modals/edit_cover_image"
 
-
-%body.background--gray
   .row
-    .col-sm-4
-      .pull-right
-        - if can? :manage, @user
-          = render partial: 'profile/modals/edit_user_info', locals: { profile_presenter: profile_presenter }
-          = link_to fa_icon("pencil"), '#edit_user_info', data: { target: '#edit_user_info', toggle: 'modal' }
-      .padding--medium.background--white
-        - if @user.avatar.file.nil?
-          = image_tag "/assets/images/default_avatar.png"
-        - else
-          %img.img-rounded.img-responsive{:src => @user.avatar_url, :title => "profile image"}/
-
+    .col-md-3
+      = render partial: "communities/newest_members", locals: { user_avatar: user_avatar }
+    .col-md-9
+      %h2
+        = @user.name
+      .margin--small--vertical
         = render 'ctas'
-        %hr.margin--bottom--small
-        = render partial: 'user_stats', locals: { profile_presenter: profile_presenter }
-        %hr
+      %p
+        - if can? :manage, @user
+          = link_to '#edit_user_info', data: { target: '#edit_user_info', toggle: 'modal' } do
+            = fa_icon('pencil')
+            = "Edit user information"
+          = render partial: "profile/modals/edit_user_info", locals: { profile_presenter: profile_presenter }
+
+      %ul.list-unstyled
+        %li
+          = "Roles: "
+          - if @user.roles.present?
+            %ul
+              - @user.roles.each do |role|
+                %li
+                  = role.name
+          - else
+            = profile_presenter.blank_state
+
+        %li 
+          = "Birthday:"
+          = @user.dob || profile_presenter.blank_state
+        %li
+          = "State:"
+          = @user.state || profile_presenter.blank_state
+        %li
+          = "Country:"
+          = @user.country || profile_presenter.blank_state
+        %li
+          = "Member Since:"
+          = @user.joined_at
+
+
+        %hr.margin--vertical--large
+        = render "bio"
+        %hr.margin--vertical--large
         = render 'communities'
+        %hr.margin--vertical--large
 
-    .col-sm-8
-      = render 'bio'
-      = render 'connections'
-      = render 'posts'
+-# %body.background--gray
+  -# .row
+    -# .col-sm-4
+      -# .pull-right
+        -# - if can? :manage, @user
+          -# = render partial: 'profile/modals/edit_user_info', locals: { profile_presenter: profile_presenter }
+          -# = link_to fa_icon("pencil"), '#edit_user_info', data: { target: '#edit_user_info', toggle: 'modal' }
+      -# .padding--medium.background--white
+        -# - if @user.avatar.file.nil?
+          -# = image_tag "/assets/images/default_avatar.png"
+        -# - else
+          -# %img.img-rounded.img-responsive{:src => @user.avatar_url, :title => "profile image"}/
 
+        -# = render 'ctas'
+        -# %hr.margin--bottom--small
+        -# = render partial: 'user_stats', locals: { profile_presenter: profile_presenter }
+        -# %hr
+        -# = render 'communities'
+
+    -# .col-sm-8
+      -# = render 'bio'
+      -# = render 'connections'
+      -# = render 'posts'
+
+        -# %hr.margin--vertical--large
+        -# = render 'connections'
+
+
+      
+
+      -# %li.text-right
+        -# .pull-left
+          -# = "Roles"
+        -# - if @user.roles.present?
+          -# - @user.roles.each do |role|
+            -# %span.label.label-info
+              -# = role.name
+        -# - else
+          -# = profile_presenter.blank_state
+      -# %li.text-right
+        -# .pull-left
+          -# = "Location"
+        -# = profile_presenter.location
+
+-# - if can? :manage, @user
+  -# = link_to fa_icon("pencil"), '#edit_images', data: { target: '#edit_user_info', toggle: 'modal' }
+  -# = render partial: "profile/modals/edit_user_info", locals: { profile_presenter: profile_presenter }
+
+-# .container
+  -# .row
+    -# .col-md-6
+      -# %h2
+        -# = @user.name
+    -# .col-md-6
+      -# - if can? :manage, @user
+        -# .pull-right
+          -# .pull-right
+          -# = link_to conversations_path, class: 'btn btn-primary' do
+            -# = fa_icon 'envelope-o'
+            -# = "My Inbox"
 
 

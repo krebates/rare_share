@@ -1,16 +1,20 @@
 img.bannner {
-  background: url(banner-homepage.png) no-repeat center center fixed;
+  background: no-repeat center center fixed;
   background-size: cover;
+  width: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  
+  /* @media (min-device-width: 320px) and (max-device-width: 480px) { */
+    /* background: url(banner-homepage-iphone.png) no-repeat center center fixed; */
+    /* background-size: cover; */
+  /* } */
 
-  @media (min-device-width: 320px) and (max-device-width: 480px) {
-    background: url(banner-homepage-iphone.png) no-repeat center center fixed;
-    background-size: cover;
-  }
-
-  @media (min-device-width: 768px) and (max-device-width: 1024px) {
-    background: url(banner-homepage.png) no-repeat center center fixed;
-    background-size: cover;
-  }
+  /* @media (min-device-width: 768px) and (max-device-width: 1024px) { */
+    /* background: url(banner-homepage.png) no-repeat center center fixed; */
+    /* background-size: cover; */
+  /* } */
 }
 
 .icon-image{
@@ -45,3 +49,7 @@ img.bannner {
     top: 0; left: 0;
 }
 
+.image--overlap {
+  margin-top: -140px;
+  margin-left: 100px;
+}

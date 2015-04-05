@@ -1,4 +1,11 @@
-= simple_form_for(@community) do |f|
-  = f.input :name
-  = f.button :submit
+.container
+  .row
+    .col-md-6
+      %p
+        = "Can't find your community? Create your own!"
+      = simple_form_for @community, html: {class: 'form-horizontal'} do |f|
+        .form-group
+          = f.input :name, autofocus: true, class: "form-control", placeholder: "Community Name"
+          = f.input :description, as: :text, input_html: { rows: 3, cols: 85}, autofocus: true, class: "form-control", placeholder: "Community Description"
+        = f.submit "Create", class: 'btn btn-rareshare'
 

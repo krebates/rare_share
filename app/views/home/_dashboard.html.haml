@@ -1,5 +1,11 @@
-.container
-  .row
+= render "shared/user_header"
+- user_avatar = current_user.avatar.present? ? current_user.avatar : "community-icon.png" 
+
+.container.margin--medium--top
+  %p.overlap--top--small
+    = link_to "View my profile", profile_path(current_user), class: 'btn btn-rareshare'
+
+  .row.margin--large--top
     .col-md-3
       %h4.border--gray--bottom.text--teal
         = "YOUR COMMUNITIES"
@@ -7,16 +13,7 @@
         - current_user.communities.each do |community|
           %li.list-group-item.list-group-item--border--bottom
             = link_to community.name, community_path(community)
-      %h4.text--teal.margin--large--top
-        = "NEWEST MEMBERS"
-      - recent_users(6).each do |user|
-        .row.margin--small--bottom
-          .col-md-4
-            - user_image = user.avatar.present? ? user.avatar : 'community-icon.png'
-            = image_tag user_image, class: 'icon-image--rounded'
-          .col-md-8
-            = user.name
-
+      = render partial: 'communities/newest_members', locals: { user_avatar: user_avatar } 
       .margin--medium--top
         = render 'shared/left_rail_ctas'
 
@@ -68,8 +65,8 @@
                   = simple_form_for :post, url: posts_path, method: :post do |f|
                     = f.input :discussion_id, as: :hidden, input_html: { value: discussion.id }
                     = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
-                    = f.input :body, as: :text, label: false, input_html: { rows: 3, cols: 85, value: "write a reply..." }
-                    = f.submit
+                    = f.input :body, as: :text, label: false, input_html: { rows: 3, cols: 85, placeholder: "write a reply..." }
+                    = f.submit "Reply", class: 'btn btn-rareshare'
 
   %hr.margin--medium--top
 

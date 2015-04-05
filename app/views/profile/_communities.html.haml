@@ -1,8 +1,14 @@
-%p
-  %h4
-    ="My Communities"
-%p
+%h4
+  ="YOUR COMMUNITIES"
+  
+%ul.list-unstyled
   - @user.memberships.each do |membership|
-    %ul.list-unstyled
-      %li
-        = link_to "#{membership.community.name}", community_path(membership.community)
+    .row.background--gray.padding--small
+      .col-md-9
+        %li
+          = link_to "#{membership.community.name}", community_path(membership.community)
+          %small
+            %p
+              = "Updated #{time_ago_in_words(membership.community.updated_at)} ago"
+      .col-md-3
+        = link_to "Leave community", membership_path(membership), method: :delete, data: { confirm: "Are you sure you want to leave this community?" }, class: 'btn btn-danger'
