@@ -31,6 +31,7 @@
             = render 'supplements'
 
           #community_leader.tab-pane{:role => "tabpanel"}
+            = render partial: 'community_leaders'
 
           #communities_list.tab-pane{:role => "tabpanel"}
             = link_to communities_path
@@ -41,8 +42,6 @@
     .col-md-3.margin--medium--top
       = render partial: 'shared/left_rail_ctas'
     .col-md-9
-      .margin--medium--top
-        = render partial: 'community_leaders'
       .margin--medium--top
         = render partial: 'discussions/summary'
 
