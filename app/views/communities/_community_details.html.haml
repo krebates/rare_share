@@ -1,0 +1,62 @@
+%h3.text--teal
+  Description
+- if @community.expanded_description.present?
+  = @community.expanded_description
+- else
+  = "An expanded description of #{@community.name} has not been added yet."
+
+%h3.text--teal
+  Prevalence
+- if @community.prevalence.present?
+  = @community.prevalence
+- else
+  = "Prevalence Information of #{@community.name} has not been added yet."
+
+%h3.text--teal
+  Causes
+- if @community.cause.present?
+  = @community.cause
+- else
+  = "Cause of #{@community.name} have not been added yet."
+
+%h3.text--teal
+  Symptoms
+- if @community.symptom.present?
+  = @commuity.symptoms
+- else
+  = "Symptoms of #{@community.name} have not been added yet."
+
+%h3.text--teal
+  Diagnosis
+- if @community.diagnosis.present?
+  = @community.diagnosis
+- else
+  = "Diagnosis of #{@community.name} have not been added yet."
+
+%h3.text--teal
+  Diagnostic Test
+- if @community.diagnostic_test.present?
+  = @community.diagnostic_test
+- else
+  = "Diagnostic tests of #{@community.name} have not been added yet."
+
+%h3.text--teal
+  Treatment
+- if @community.treatment.present?
+  = @community.treatment
+- else
+  = "Treatments of #{@community.name} have not been added yet."
+
+%h3.text--teal
+  Prognosis
+- if @community.prognosis.present?
+  = @community.prognosis
+- else
+  = "Prognosis of #{@community.name} have not been added yet."
+
+%h3.text--teal
+  Tips or Suggestions
+- if @community.tip.present?
+  = @community.tip
+- else
+  = "Tips or Suggestions of #{@community.name} have not been added yet."
