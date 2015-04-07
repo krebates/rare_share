@@ -6,7 +6,7 @@
           %li.active{:role => "presentation"}
             %a{"aria-controls" => "community_home", "data-toggle" => "tab", :href => "#community_home", :role => "tab"} COMMUNITY HOME
           %li{:role => "presentation"}
-            %a{"aria-controls" => "disorder_details", "data-toggle" => "tab", :href => "#disorder_details", :role => "tab"} DISORDER DETAILS
+            %a{"aria-controls" => "community_details", "data-toggle" => "tab", :href => "#community_details", :role => "tab"} COMMUNITY DETAILS
           %li{:role => "presentation"}
             %a{"aria-controls" => "discussion_forum", "data-toggle" => "tab", :href => "#discussion_forum", :role => "tab"} DISCUSSION FORUM
           %li{:role => "presentation"}
@@ -14,14 +14,15 @@
           %li{:role => "presentation"}
             %a{"aria-controls" => "community_leader", "data-toggle" => "tab", :href => "#community_leader", :role => "tab"} COMMUNITY LEADER
           %li{:role => "presentation"}
-            %a{"aria-controls" => "communities_list", "data-toggle" => "tab", :href => "#communities_list", :role => "tab"} BACK TO COMMUNITIES LIST
+            = link_to "BACK TO COMMUNITIES LIST", communities_path
       .col-md-9
         .tab-content
           #community_home.tab-pane.active{:role => "tabpanel"}
             = render 'community_home'
 
-          #disorder_details.tab-pane{:role => "tabpanel"}
-            ="um yea"
+          #community_details.tab-pane{:role => "tabpanel"}
+            = render 'community_details'
+            sdls
 
           #discussion_forum.tab-pane{:role => "tabpanel"}
             = render 'discussions/index'
@@ -32,6 +33,7 @@
           #community_leader.tab-pane{:role => "tabpanel"}
 
           #communities_list.tab-pane{:role => "tabpanel"}
+            = link_to communities_path
 
   %hr
 

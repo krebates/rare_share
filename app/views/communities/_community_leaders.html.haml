@@ -17,7 +17,8 @@
 - else
   %p
     = "No leaders have been elected for this group. Would you like to become a leader? Submit a request to become a leader."
-    = link_to 'BECOME A LEADER', '#become_leader', data: { target: '#become_leader', toggle: 'modal'}, class: 'btn btn-rareshare'
+    - if user_signed_in?
+      = link_to 'BECOME A LEADER', '#become_leader', data: { target: '#become_leader', toggle: 'modal'}, class: 'btn btn-rareshare'
 
 
 = render partial: "communities/modals/become_leader"
