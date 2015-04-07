@@ -2,5 +2,5 @@
 = image_tag "default-cover-photo.png", { class: "banner" }
 
 - user_avatar = current_user.avatar.present? ? current_user.avatar : "default-avatar.png" 
-.circle.overlap--top
+.circle.overlap--top.margin--x-large--left
   = image_tag user_avatar 
