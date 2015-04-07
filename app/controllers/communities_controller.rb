@@ -2,7 +2,7 @@ class CommunitiesController < ApplicationController
 
   def index
     if params[:query].present?
-      @communities = Community.search(params[:query]).page params[:page]
+      @communities = Community.search(params[:query])
     else
       @communities = Community.all.page params[:page]
     end
@@ -21,16 +21,18 @@ class CommunitiesController < ApplicationController
   def create
     @community = Community.new(community_params)
     if @community.save
-      redirect_to root_path, notice: "community created"
+      flash[:success] = "Your community was created successfully." 
+      redirect_to community_path(@community)
     else
-      redirect_to root_path, notice: "community not created"
+      flash[:error] = "Your community was not created. Please try again." 
+      redirect_to root_path
     end
   end
 
   private
 
   def community_params
-    params.require(:community).permit(:name)
+    params.require(:community).permit(:name, :description)
   end
 
 end

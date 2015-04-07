@@ -6,7 +6,8 @@
   - @community.leaders.each do |leader|
     .row
       .col-md-3
-        = image_tag(leader.avatar)
+        .circle
+          = image_tag(leader.avatar)
       .col-md-9
         %h4
           = leader.name

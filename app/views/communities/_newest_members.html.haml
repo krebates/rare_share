@@ -1,0 +1,9 @@
+%h4.text--teal.margin--large--top
+  = "NEWEST MEMBERS"
+- recent_users(6).each do |user|
+  .row.margin--small--bottom
+    .col-md-4
+      - user_avatar = user.avatar.present? ? user.avatar : "community-icon.png" 
+      = image_tag user_avatar, class: 'icon-image--rounded'
+    .col-md-8
+      = link_to "#{user.name}", profile_path(user)

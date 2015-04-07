@@ -4,8 +4,7 @@ class Community < ActiveRecord::Base
   has_many :discussions
   has_many :supplements
 
-  validates :name, uniqueness: {scope: :user_id}, presence: true
-  validates :description, presence: true
+  validates :name, uniqueness: true, presence: true
 
   #include in model to be searchable
   searchkick suggest: ["name"]

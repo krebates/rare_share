@@ -18,10 +18,18 @@ class MembershipsController < ApplicationController
     @membership = Membership.new(membership_params)
     @membership.user_id = current_user.id
     if @membership.save
-      redirect_to root_path, notice: "You have joined this community"
+      flash[:success] = "You have successfully joined this community."
+      redirect_to community_path(membership_params[:community_id])
     else
-      redirect_to root_path, notice: "Couldn't join community"
+      flash[:error] = "There was an error. Could not join community, try again."
+      redirect_to :back
     end
+  end
+
+  def destroy
+    @membership = Membership.find(params[:id])
+    @membership.destroy!
+    redirect_to :back
   end
 
   private

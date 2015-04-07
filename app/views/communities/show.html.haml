@@ -1,51 +1,52 @@
-%div{:role => "tabpanel"}
+.container
+  %div{:role => "tabpanel"}
+    .row
+      .col-md-3
+        %ul.nav.community-nav{:role => "tablist"}
+          %li.active{:role => "presentation"}
+            %a{"aria-controls" => "community_home", "data-toggle" => "tab", :href => "#community_home", :role => "tab"} COMMUNITY HOME
+          %li{:role => "presentation"}
+            %a{"aria-controls" => "disorder_details", "data-toggle" => "tab", :href => "#disorder_details", :role => "tab"} DISORDER DETAILS
+          %li{:role => "presentation"}
+            %a{"aria-controls" => "discussion_forum", "data-toggle" => "tab", :href => "#discussion_forum", :role => "tab"} DISCUSSION FORUM
+          %li{:role => "presentation"}
+            %a{"aria-controls" => "disorder_resources", "data-toggle" => "tab", :href => "#disorder_resources", :role => "tab"} DISORDER RESOURCES
+          %li{:role => "presentation"}
+            %a{"aria-controls" => "community_leader", "data-toggle" => "tab", :href => "#community_leader", :role => "tab"} COMMUNITY LEADER
+          %li{:role => "presentation"}
+            %a{"aria-controls" => "communities_list", "data-toggle" => "tab", :href => "#communities_list", :role => "tab"} BACK TO COMMUNITIES LIST
+      .col-md-9
+        .tab-content
+          #community_home.tab-pane.active{:role => "tabpanel"}
+            = render 'community_home'
+
+          #disorder_details.tab-pane{:role => "tabpanel"}
+            ="um yea"
+
+          #discussion_forum.tab-pane{:role => "tabpanel"}
+            = render 'discussions/index'
+
+          #disorder_resources.tab-pane{:role => "tabpanel"}
+            = render 'supplements'
+
+          #community_leader.tab-pane{:role => "tabpanel"}
+
+          #communities_list.tab-pane{:role => "tabpanel"}
+
+  %hr
+
   .row
-    .col-md-3
-      %ul.nav.community-nav{:role => "tablist"}
-        %li.active{:role => "presentation"}
-          %a{"aria-controls" => "community_home", "data-toggle" => "tab", :href => "#community_home", :role => "tab"} COMMUNITY HOME
-        %li{:role => "presentation"}
-          %a{"aria-controls" => "disorder_details", "data-toggle" => "tab", :href => "#disorder_details", :role => "tab"} DISORDER DETAILS
-        %li{:role => "presentation"}
-          %a{"aria-controls" => "discussion_forum", "data-toggle" => "tab", :href => "#discussion_forum", :role => "tab"} DISCUSSION FORUM
-        %li{:role => "presentation"}
-          %a{"aria-controls" => "disorder_resources", "data-toggle" => "tab", :href => "#disorder_resources", :role => "tab"} DISORDER RESOURCES
-        %li{:role => "presentation"}
-          %a{"aria-controls" => "community_leader", "data-toggle" => "tab", :href => "#community_leader", :role => "tab"} COMMUNITY LEADER
-        %li{:role => "presentation"}
-          %a{"aria-controls" => "communities_list", "data-toggle" => "tab", :href => "#communities_list", :role => "tab"} BACK TO COMMUNITIES LIST
+    .col-md-3.margin--medium--top
+      = render partial: 'shared/left_rail_ctas'
     .col-md-9
-      .tab-content
-        #community_home.tab-pane.active{:role => "tabpanel"}
-          = render 'community_home'
+      .margin--medium--top
+        = render partial: 'community_leaders'
+      .margin--medium--top
+        = render partial: 'discussions/summary'
 
-        #disorder_details.tab-pane{:role => "tabpanel"}
-          ="um yea"
+  %hr.margin--medium--top
 
-        #discussion_forum.tab-pane{:role => "tabpanel"}
-          = render 'discussions/index'
-
-        #disorder_resources.tab-pane{:role => "tabpanel"}
-          = render 'supplements'
-
-        #community_leader.tab-pane{:role => "tabpanel"}
-
-        #communities_list.tab-pane{:role => "tabpanel"}
-
-%hr
-
-.row
-  .col-md-3.margin--medium--top
-    = render partial: 'shared/left_rail_ctas'
-  .col-md-9
-    .margin--medium--top
-      = render partial: 'community_leaders'
-    .margin--medium--top
-      = render partial: 'discussions/summary'
-
-%hr.margin--medium--top
-
-= render partial: 'shared/footer_ctas'
+  = render partial: 'shared/footer_ctas'
 
 
 
