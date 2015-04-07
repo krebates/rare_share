@@ -11,7 +11,8 @@
         .modal-body
           = simple_form_for :leader_request, url: leader_requests_path do |f|
             = f.input :community_id, as: :hidden, input_html: { value: @community.id }
-            = f.input :sender_id, as: :hidden, input_html: { value: current_user.id }
+            - if user_signed_in?
+              = f.input :sender_id, as: :hidden, input_html: { value: current_user.id }
             %h4
               = "Why would you make a great community leader?"
             = f.input :body, as: :text, label: false, input_html: { rows: 10, cols: 60 }
