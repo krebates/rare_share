@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  default_scope { order('created_at DESC') } 
+  default_scope { order('created_at DESC') }
   acts_as_messageable
   # before_action :authenticate_user!
   has_many :roles
@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
 
   #uploader
   mount_uploader :avatar, AvatarUploader
+  belongs_to :user_attachments
 
   TITLES = %i[admin, expert]
 
