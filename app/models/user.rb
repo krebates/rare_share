@@ -19,8 +19,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   #uploader
-  mount_uploader :avatar, AvatarUploader
-  belongs_to :user_attachments
+  # mount_uploader :avatar, AvatarUploader
+
+  has_many :user_attachments
+  accepts_nested_attributes_for :user_attachments
 
   TITLES = %i[admin, expert]
 
