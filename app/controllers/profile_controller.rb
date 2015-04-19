@@ -7,7 +7,7 @@ class ProfileController < ApplicationController
   # def update
   #   @user = User.find(params[:id])
   #   update_roles(@user) if user_params[:roles].present?
-  #   @user.update_attributes(user_params.except(:roles))
+    # @user.update_attributes(user_params.except(:roles))
 
   #   redirect_to :back
   # end
@@ -29,7 +29,9 @@ class ProfileController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    # @user_attachment = @user.user_attachments.build
+    update_roles(@user) if user_params[:roles].present?
+    @user.update_attributes(user_params.except(:roles))
+    @user_attachment = @user.user_attachments.build
     respond_to do |format|
       if @user.save
         params[:user_attachments]['avatar'].each do |a|

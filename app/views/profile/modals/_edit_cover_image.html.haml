@@ -9,15 +9,13 @@
         %h3.modal-title
           = "Edit Profile Image"
         .modal-body
-          = form_for @user, url: profile_path(@user), :html => { :multipart => true } do |f|
-
+          = form_for @user, :html => { :multipart => true }, url: profile_path(@user) do |f|
 
             = f.fields_for :user_attachments do |p|
-              .field
-                = p.label :avatar
-                %br/
-                = p.file_field :avatar, :multiple => true, name: "user_attachments[avatar][]"
-                .modal-footer
-                  .form-actions.pull-right
-                    = form_buttons(f, submit_text: "Save")
+              = p.label :avatar
+              %br/
+              = p.file_field :avatar, :multiple => true, name: "user_attachment[avatar][]"
+              .modal-footer
+                .form-actions.pull-right
+                  = form_buttons(p, submit_text: "Save")
 
