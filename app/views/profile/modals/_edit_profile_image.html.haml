@@ -9,10 +9,12 @@
         %h3.modal-title
           = "Edit Cover Image"
         .modal-body
-          = simple_form_for @user, url: profile_path(@user), method: :put do |f|
-            -# = f.file_field :avatar
-            %br
-            .modal-footer
-              .form-actions.pull-right
-                = form_buttons(f, submit_text: "Save")
+          = form_for @user, url: profile_path(@user), :html => {:multipart => true} do |f|
+            = file_field_tag "images[]", type: :file, multiple: true
+            = f.submit "submit", :class => "btn btn-default"
+
+
+          %br
+          .modal-footer
+            .form-actions.pull-right
 

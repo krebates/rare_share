@@ -29,8 +29,11 @@ class ProfileController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+
+
     update_roles(@user) if user_params[:roles].present?
     @user.update_attributes(user_params.except(:roles))
+
     @user_attachment = @user.user_attachments.build
     respond_to do |format|
       if @user.save
@@ -59,7 +62,7 @@ class ProfileController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:bio, :city, :state, :country, :avatar, :first_name, :last_name, roles:[], users_attributes: [:id, :user_id, :avatar])
+    params.require(:user).permit(:bio, :city, :state, :country, :avatar, :first_name, :last_name, roles:[], users_attachments: [:id, :user_id, :avatar])
   end
 
 end
