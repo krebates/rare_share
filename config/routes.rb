@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :supplements
   end
 
-  resources :users_attachments
+  resources :user_attachments
 
   resources :discussions, only: [:show, :create]
 

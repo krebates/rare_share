@@ -1,8 +1,0 @@
-= simple_form_for Post.new do |f|
-  = f.text_field :body
-  = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
-  = f.input :discussion_id, as: :hidden, input_html: { value: @discussion.id }
-  .modal-footer
-    .btn.btn-default{ data: { dismiss: 'modal' } }
-      = 'Close'
-    = f.submit 'Submit', class: 'btn btn-primary'
