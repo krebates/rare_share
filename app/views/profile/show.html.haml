@@ -1,20 +1,20 @@
 - profile_presenter = ProfilePresenter.new(@user)
-= render "shared/user_header"
+= render partial: "shared/user_header", locals: { user: @user }
 - user_avatar = current_user.avatar.present? ? current_user.avatar : "community-icon.png"
 
 .container
   %p
     - if can? :manage, @user
-      = link_to '#edit_profile_image', data: { target: '#edit_profile_image', toggle: 'modal' } do
+      = link_to '#edit_profile_photo', data: { target: '#edit_profile_photo', toggle: 'modal' } do
         = fa_icon('pencil')
         = "Edit profile image"
-      = render partial: "profile/modals/edit_profile_image"
+      = render partial: "profile/modals/edit_profile_photo"
   %p
     - if can? :manage, @user
-      = link_to '#edit_cover_image', data: { target: '#edit_cover_image', toggle: 'modal' } do
+      = link_to '#edit_cover_photo', data: { target: '#edit_cover_photo', toggle: 'modal' } do
         = fa_icon('pencil')
         = "Edit cover image"
-      = render partial: "profile/modals/edit_cover_image"
+      = render partial: "profile/modals/edit_cover_photo"
 
   .row
     .col-md-3

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :supplements
   end
 
+  resources :user_attachments
+
   resources :discussions, only: [:show, :create]
 
   resources :connections

@@ -1,0 +1,18 @@
+#edit_cover_photo.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %span.pull-right{ data: { dismiss: "modal" }, aria: { hidden: "true" } }
+          = fa_icon("times")
+        %span.sr-only
+          = "Close"
+        %h3.modal-title
+          = "Edit Cover Photo"
+        .modal-body
+          = form_for :user_attachment, url: user_attachments_path do |f|
+            = f.label :cover_photo
+            = f.file_field :avatar, :multiple => true, name: "user_attachment[avatar][]"
+            = f.hidden_field :user_id, :value => current_user.id
+            = f.hidden_field :attachment_type, :value => "cover_photo"
+            = f.submit
+
