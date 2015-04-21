@@ -18,9 +18,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  #uploader
-  # mount_uploader :avatar, AvatarUploader
-
   has_many :user_attachments
   accepts_nested_attributes_for :user_attachments
 
@@ -43,6 +40,26 @@ class User < ActiveRecord::Base
     connections.map(&:connect_id).map do |user_id|
       User.find(user_id).name
     end
+  end
+
+  #TODO fix .last
+  def profile_photo
+    profile_photos = user_attachments.where(attachment_type: "profile_photo")
+    if profile_photos.last.present?
+      profile_photos.last.avatar
+    else
+      "default-profile-photo.png"
+    end
+  end
+
+  def cover_photo
+    cover_photos = user_attachments.where(attachment_type: "cover_photo")
+    if cover_photos.last.present?
+      cover_photos.last.avatar
+    else
+      "default-cover-photo.png"
+    end
+
   end
 
   def has_location?

@@ -1,4 +1,4 @@
-#edit_cover_image.modal.fade
+#edit_profile_photo.modal.fade
   .modal-dialog
     .modal-content
       .modal-header
@@ -7,7 +7,7 @@
         %span.sr-only
           = "Close"
         %h3.modal-title
-          = "Edit Cover Image"
+          = "Edit Profile Image"
         .modal-body
           = form_for @user, url: profile_path(@user), :html => {:multipart => true} do |f|
             = file_field_tag "images[]", type: :file, multiple: true
