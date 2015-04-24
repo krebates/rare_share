@@ -32,8 +32,9 @@
           = render partial: "profile/modals/edit_user_info", locals: { profile_presenter: profile_presenter }
 
       %ul.list-unstyled
-        %li
-          = "Roles: "
+        %li.margin--x-small--bottom
+          %strong
+            = "Roles: ".upcase
           - if @user.roles.present?
             %ul
               - @user.roles.each do |role|
@@ -42,17 +43,25 @@
           - else
             = profile_presenter.blank_state
 
-        %li
-          = "Birthday:"
+        %li.margin--x-small--bottom
+          %strong
+            = "Birthday:".upcase
           = @user.dob || profile_presenter.blank_state
-        %li
-          = "State:"
+        %li.margin--x-small--bottom
+          %strong
+            = "Gender:".upcase
+          = @user.gender || profile_presenter.blank_state
+        %li.margin--x-small--bottom
+          %strong
+            = "State:".upcase
           = @user.state || profile_presenter.blank_state
-        %li
-          = "Country:"
+        %li.margin--x-small--bottom
+          %strong
+            = "Country:".upcase
           = @user.country || profile_presenter.blank_state
-        %li
-          = "Member Since:"
+        %li.margin--x-small--bottom
+          %strong
+            = "Member Since:".upcase
           = @user.joined_at
 
 

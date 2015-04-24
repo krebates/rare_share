@@ -15,10 +15,13 @@ class ProfilePresenter
     " -- "
   end
 
-  def roles
+  def role_collection
     Role.all.map { |r| [r.name, r.id] }
   end
 
+  def gender_collection
+    [['Male', 'male'],['Female', 'female'], ['Other', 'other']]
+  end
 
   private
 

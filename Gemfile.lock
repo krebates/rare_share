@@ -66,6 +66,13 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     columnize (0.9.0)
+    countries (0.11.3)
+      currencies (~> 0.4.2)
+      i18n_data (~> 0.6.0)
+    country_select (2.2.0)
+      countries (~> 0.11.0)
+      sort_alphabetical (~> 1.0)
+    currencies (0.4.2)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     devise (3.4.1)
@@ -105,6 +112,7 @@ GEM
     high_voltage (2.2.1)
     hike (1.2.3)
     i18n (0.7.0)
+    i18n_data (0.6.3)
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -131,7 +139,7 @@ GEM
     mime-types (2.4.3)
     mini_magick (4.0.2)
     mini_portile (0.6.1)
-    minitest (5.5.1)
+    minitest (5.6.0)
     multi_json (1.10.1)
     multipart-post (2.0.0)
     nested_form (0.3.2)
@@ -223,6 +231,8 @@ GEM
       actionpack (~> 4.0)
       activemodel (~> 4.0)
     slop (3.6.0)
+    sort_alphabetical (1.0.1)
+      unicode_utils (>= 1.2.2)
     spring (1.2.0)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -241,6 +251,7 @@ GEM
     uglifier (2.6.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicode_utils (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
     xpath (2.0.0)
@@ -259,6 +270,7 @@ DEPENDENCIES
   capybara
   carrierwave
   coffee-rails (~> 4.0.0)
+  country_select
   devise
   factory_girl_rails
   faker (~> 1.4.3)
