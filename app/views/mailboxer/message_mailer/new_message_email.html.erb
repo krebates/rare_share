@@ -1,20 +1,31 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-  </head>
-  <body>
-    <h1>You have a new message: <%= @subject %></h1>
-    <p>
-      You have received a new message:
-    </p>
-    <blockquote>
-      <p>
-        <%= raw @message.body %>
-      </p>
-    </blockquote>
-    <p>
-      Visit <%= link_to root_url, root_url %> and go to your inbox for more info.
-    </p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>New Message</title>
+</head>
+  <body bgcolor="#FFFFFF">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>
+          <table width="600" border="0" cellspacing="0" cellpadding="0"  align="center">
+            <tr>
+              <td>
+                <%= image_tag('logo.png') %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h2> Hi <%= @receiver.name %>, </h2>
+                <h3>You have a new message!</h2>
+                <p> <%= @message.body.html_safe %> </p>
+                <% button_style = "background-color:#4EBFAD;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;" %>
+                <%= link_to "Reply on RareShare", root_url + "profile/#{@message.sender.id}", style: button_style%>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>

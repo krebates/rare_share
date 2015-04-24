@@ -9,6 +9,12 @@ class ProfileController < ApplicationController
     update_roles(@user) if user_params[:roles].present?
     @user.update_attributes(user_params.except(:roles))
 
+    if @user.save
+      flash[:success] = "Your information has been saved"
+    else
+      flash[:error] = "Your information has not been saved successfully, please try again"
+    end
+
     redirect_to :back
   end
 

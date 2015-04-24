@@ -54,60 +54,40 @@
     -# = link_to "Log in", new_session_path(resource_name)
 
 .container
-  .row
-    .col-md-12
-      / %h2 Sign up
-      / = simple_form_for @user, url: user_registration_path do |f|
-      /   = devise_error_messages!
-      /   %div
-      /     = f.input :username, autofocus: true
-      /     = f.input :email, autofocus: true
-      /     = f.input :first_name, autofocus: true
-      /     = f.input :last_name, autofocus: true
-      /     = f.input :dob, autofocus: true, as: :date
-      /     = f.input :password
-      /     - if @validatable
-      /       %i
-      /         (#{@minimum_password_length} characters minimum)
-      /     = f.input :password_confirmation
-      /     = f.submit "Sign up"
-      / = render "devise/shared/links"
-
-
-    %h2 Sign up
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal'}) do |f|
-      = devise_error_messages!
-      .form-group
-        = f.label :username, class: "col-sm-2 control-label"
-        .col-sm-6
-          = f.text_field :username, class: "form-control",autofocus: true
-      .form-group
-        = f.label :email, class: "col-sm-2 control-label"
-        .col-sm-6
-          = f.email_field :email, class: "form-control"
-      .form-group
-        = f.label :first_name, class: "col-sm-2 control-label"
-        .col-sm-6
-          = f.text_field :first_name, class: "form-control",autofocus: true
-      .form-group
-        = f.label :last_name, class: "col-sm-2 control-label"
-        .col-sm-6
-          = f.text_field :last_name, class: "form-control",autofocus: true
-      .form-group
-        = f.label "Date of Birth", class: "col-sm-2 control-label"
-        .col-sm-6
-          = f.date_field :dob, class: "form-control",autofocus: true, as: :date
-      .form-group
-        = f.label :password, class: "col-sm-2 control-label"
-        .col-sm-6
-          = f.password_field :password, autocomplete: "off", class: "form-control"
-      .form-group
-        = f.label :password_confirmation, class: "col-sm-2 control-label"
-        .col-sm-6
-          = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
-      .form-group
-        .col-sm-offset-2.col-sm-6
-          = f.submit "Sign up", class: "btn btn-primary"
-      .form-group
-        .col-sm-offset-2.col-sm-6
-          = render "devise/shared/links"
+  %h2 Sign up
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal'}) do |f|
+    = devise_error_messages!
+    .form-group
+      = f.label :username, class: "col-sm-2 control-label"
+      .col-sm-6
+        = f.text_field :username, class: "form-control",autofocus: true
+    .form-group
+      = f.label :email, class: "col-sm-2 control-label"
+      .col-sm-6
+        = f.email_field :email, class: "form-control"
+    .form-group
+      = f.label :first_name, class: "col-sm-2 control-label"
+      .col-sm-6
+        = f.text_field :first_name, class: "form-control",autofocus: true
+    .form-group
+      = f.label :last_name, class: "col-sm-2 control-label"
+      .col-sm-6
+        = f.text_field :last_name, class: "form-control",autofocus: true
+    .form-group
+      = f.label "Date of Birth", class: "col-sm-2 control-label"
+      .col-sm-6
+        = f.date_field :dob, class: "form-control",autofocus: true, as: :date
+    .form-group
+      = f.label :password, class: "col-sm-2 control-label"
+      .col-sm-6
+        = f.password_field :password, autocomplete: "off", class: "form-control"
+    .form-group
+      = f.label :password_confirmation, class: "col-sm-2 control-label"
+      .col-sm-6
+        = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
+    .form-group
+      .col-sm-offset-2.col-sm-6
+        = f.submit "Sign up", class: "btn btn-primary"
+    .form-group
+      .col-sm-offset-2.col-sm-6
+        = render "devise/shared/links"

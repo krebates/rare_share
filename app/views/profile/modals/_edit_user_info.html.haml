@@ -5,17 +5,18 @@
   = simple_form_for @user, url: profile_path do |f|
     = f.input :roles,
       include_hidden: false,
-      collection: profile_presenter.roles,
-      wrapper_html: { class: 'form-group' },
+      collection: profile_presenter.role_collection,
       as: :check_boxes,
+      wrapper: :horizontal_radio_and_checkboxes,
       checked: @user.roles.map(&:id)
 
     = f.input :city, input_html: {value: @user.city}
     = f.input :state, input_html: { value: @user.state }
+    = f.input :country, as: :country, input_html: { value: @user.country }
 
     = f.input :first_name, input_html: { value: @user.first_name}
     = f.input :last_name, input_html: { value: @user.last_name }
-
+    = f.input :gender, as: :select, collection: profile_presenter.gender_collection, input_html: { value: @user.gender }
 
     .modal-footer
       = form_buttons(f, submit_text: "Save changes")
