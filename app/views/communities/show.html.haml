@@ -4,7 +4,6 @@
       .col-md-3
         .btn
           = link_to("Edit Community", edit_community_path(@community), :method => "get", class:'btn btn-large btn-info')
-          / = link_to "Edit Community", edit_community_path(@community)
         %ul.nav.community-nav{:role => "tablist"}
           %li.active{:role => "presentation"}
             %a{"aria-controls" => "community_home", "data-toggle" => "tab", :href => "#community_home", :role => "tab"} COMMUNITY HOME
