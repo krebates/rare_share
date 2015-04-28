@@ -1,0 +1,20 @@
+.container
+  .row
+    .col-md-6
+      %p
+      = simple_form_for @community, html: {class: 'form-horizontal'} do |f|
+        .form-group
+          = f.input :name
+          = f.input :description
+          = f.input :prevalence
+          = f.input :cause
+          = f.input :diagnosis
+          = f.input :symptom
+          = f.input :diagnostic_test
+          = f.input :treatment
+          = f.input :prognosis
+          = f.input :tip
+          = f.input :expanded_description
+
+        = f.submit class: 'btn btn-rareshare'
+
