@@ -3,9 +3,10 @@
 .panel.panel-default
   .panel-heading
     .pull-right
-      = link_to "#new_supplement", { data: { target: '#new_supplement', toggle: 'modal' } } do
-        = fa_icon('plus')
-        = "Add Resource"
+      - if can? :manage, Community
+        = link_to "#new_supplement", { data: { target: '#new_supplement', toggle: 'modal' } } do
+          = fa_icon('plus')
+          = "Add Resource"
     .panel-title
       = "Community Resources"
   .panel-body
@@ -23,10 +24,11 @@
         - @community.supplements.each do |supplement|
           %tr
             %td
-              = link_to supplement.title, community_supplement_path(@community, supplement)
+              = supplement.title
             %td
               = supplement.description
             %td
-              = supplement.link
+              %a{ href: supplement.link, target: "_blank" }
+                = supplement.link
             %td
               = supplement.created_at.strftime("%m/%d/%Y")

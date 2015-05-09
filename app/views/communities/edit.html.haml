@@ -1,8 +1,10 @@
 .container
-  .row
+  %h4
+    ="Community Details"
+  .row.margin--medium--bottom
     .col-md-6
       %p
-      = simple_form_for @community, html: {class: 'form-horizontal'} do |f|
+      = simple_form_for @community do |f|
         .form-group
           = f.input :name
           = f.input :description

@@ -44,8 +44,6 @@ class CommunitiesController < ApplicationController
 
   def edit
     @community = Community.find(params[:id])
-    # if current_user.id == @community.user.id
-    # end
   end
 
 

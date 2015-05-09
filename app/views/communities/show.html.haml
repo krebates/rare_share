@@ -1,9 +1,10 @@
 .container
+  .pull-right
+    - if can? :manage, Community
+      = link_to("Edit Community", edit_community_path(@community), class:'btn btn-rareshare')
   %div{:role => "tabpanel"}
     .row
       .col-md-3
-        .btn
-          = link_to("Edit Community", edit_community_path(@community), :method => "get", class:'btn btn-large btn-info')
         %ul.nav.community-nav{:role => "tablist"}
           %li.active{:role => "presentation"}
             %a{"aria-controls" => "community_home", "data-toggle" => "tab", :href => "#community_home", :role => "tab"} COMMUNITY HOME
@@ -49,30 +50,3 @@
   %hr.margin--medium--top
 
   = render partial: 'shared/footer_ctas'
-
-
-
-
-
-
--# - if can? :manage, Community
-  -# = link_to "Update Community Information", "#new_disease_info", { data: { target: '#new_discussion', toggle: 'modal' } }
-
--# .row
-  -# .col-md-4
-    -# = render 'community_members'
-  -# .col-md-8
-    -# %h3
-      -# = "Description:"
-    -# %h3
-      -# = "Symptoms:"
-    -# %h3
-      -# = "Diagnosis:"
-    -# %h3
-      -# = "Prognosis:"
-    -# %h3
-      -# = "General Treatment:"
-    -# %h3
-      -# = "Causes:"
-
-

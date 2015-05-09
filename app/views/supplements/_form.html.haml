@@ -1,7 +1,7 @@
 = simple_form_for @supplement, url: community_supplements_path(@community) do |f|
   = f.input :title
   = f.input :description
-  = f.input :link
+  = f.input :link, as: :url, placeholder: 'ex. https://www.google.com'
   .modal-footer
     .btn.btn-default{ data: { dismiss: 'modal' } }
       = 'Close'
