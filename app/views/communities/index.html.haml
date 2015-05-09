@@ -1,23 +1,30 @@
 .container
-  = form_tag communities_path, class: "form-inline", method: :get do
-    .form-group
-      = text_field_tag :query, params[:query], class: "form-control"
-      = submit_tag "Search", class: "btn btn-primary"
-    - if params[:query].present?
-      = link_to "clear", communities_path
+  .row
+    .col-md-8
+      %h2
+        = "Communities"
+    .col-md-4.margin--small--top
+      = form_tag communities_path, class: "form-inline pull-left", method: :get do
+        .form-group
+          = text_field_tag :query, params[:query], class: "form-control"
+          = submit_tag "Search", class: "btn btn-primary"
+        - if params[:query].present?
+          = link_to "clear", communities_path
 
-  %h4
-    = "All Communities"
-  %ul
-  - @communities.each do |community|
-    %li.list-unstyled
-      = link_to community.name, community
-      %small
-        %p
-          = "#{community.members.count} members"
-      %p
-        - if community.description.present?
-          = community.description.truncate(100, separator: ' ')
-    = paginate @communities
+    .col-md-10
+      %ul.list_group.margin--medium--top
+        - @communities.each do |community|
+          %li.list-group-item.list-group-item--border--horizontal
+            = link_to community.name, community
+            .pull-right
+              - options = { disabled: current_user.communities.include?(community), class: 'btn btn-primary', method: 'post' }
+              = button_to 'Join', memberships_path(community_id: community.id, user_id: current_user.id), options
+            %small
+              %p
+                = "#{community.members.count} members"
+            %p
+              - if community.description.present?
+                = community.description.truncate(100, separator: ' ')
+        = paginate @communities
 
 

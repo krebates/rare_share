@@ -1,6 +1,7 @@
 class CommunitiesController < ApplicationController
 
   def index
+    @membership = Membership.new 
     if params[:query].present?
       @communities = Community.search(params[:query])
     else

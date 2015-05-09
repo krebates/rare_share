@@ -16,14 +16,12 @@ Rails.application.routes.draw do
 
   resources :discussions, only: [:show, :create]
 
-  resources :connections
-
   resources :leader_requests, only: [:create]
 
   resources :conversations do
     resources :replies, only: [:new, :create], module: :conversation
   end
 
-  resources :memberships
-  resources :posts
+  resources :memberships, only: [:create, :destroy]
+  resources :posts, only: [:create]
 end

@@ -22,7 +22,6 @@
 
           #community_details.tab-pane{:role => "tabpanel"}
             = render 'community_details'
-            sdls
 
           #discussion_forum.tab-pane{:role => "tabpanel"}
             = render 'discussions/index'
@@ -48,30 +47,4 @@
   %hr.margin--medium--top
 
   = render partial: 'shared/footer_ctas'
-
-
-
-
-
-
--# - if can? :manage, Community
-  -# = link_to "Update Community Information", "#new_disease_info", { data: { target: '#new_discussion', toggle: 'modal' } }
-
--# .row
-  -# .col-md-4
-    -# = render 'community_members'
-  -# .col-md-8
-    -# %h3
-      -# = "Description:"
-    -# %h3
-      -# = "Symptoms:"
-    -# %h3
-      -# = "Diagnosis:"
-    -# %h3
-      -# = "Prognosis:"
-    -# %h3
-      -# = "General Treatment:"
-    -# %h3
-      -# = "Causes:"
-
 
