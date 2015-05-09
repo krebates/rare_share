@@ -1,24 +1,20 @@
-= @discussion.title
+.container
+  %h4
+    = @discussion.title
+  .row.margin--small--top
+    - @discussion.posts.each do |post|
+      .col-md-1
+        - author_image = post.author.avatar.present? ? post.author.avatar : 'community-icon.png'
+        = image_tag author_image, class: 'icon-image--rounded'
+      .col-md-11
+        %i
+          = link_to post.author.name, profile_path(post.author)
+        %br
+        %i
+          %small
+            = "#{time_ago_in_words(post.created_at)} ago"
+        %p
+          = post.body
 
-= link_to "New Post", "#new_comment", { data: { target: '#new_comment', toggle: 'modal' } } 
-
-#new_comment.modal.fade
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %span.pull-right{ "aria-hidden" => "true", data: { dismiss: "modal"} }
-          = fa_icon("times")
-        %span.sr-only 
-          = "Close"
-        .modal-title
-          %h3
-            = "Create a Discussion Post"
-        .modal-body
-          = render partial: 'posts/form'
-
-- if @discussion.posts.present?
-  - @discussion.posts.each do |post|
-    %ul
-      %li
-        = "#{current_user.first_name}: #{post.body}"
-
+  .margin--small--vertical
+    = render 'posts/form', discussion: @discussion

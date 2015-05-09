@@ -42,26 +42,4 @@
           .col-md-6
 
       .margin--small--vertical
-        = simple_form_for :post, url: posts_path, method: :post do |f|
-          = f.input :discussion_id, as: :hidden, input_html: { value: discussion.id }
-          = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
-          = f.input :body, as: :text, label: false, input_html: { rows: 3, cols: 85, value: "write a reply..." }
-          = f.submit
-
--# .panel.panel-default
--# .panel-heading
-  -# .pull-right
-  -# .panel-title
-    -# = "Community Discussions"
-    
-  -# .panel-body
-    -# - @community.discussions.each do |discussion|
-      -# .media
-        -# .media-left
-          -# = fa_icon 'user 2x'
-        -# .media-body
-          -# %h4.media-heading
-            -# = link_to "#{discussion.title}", discussion_path(discussion)
-          -# .media-body
-            -# = "Subject: #{discussion.subject}"
-
+        = render partial: 'posts/form', locals: { discussion: discussion }

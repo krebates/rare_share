@@ -1,8 +1,6 @@
-= simple_form_for Post.new do |f|
-  = f.text_field :body
+= simple_form_for :post, url: posts_path, method: :post do |f|
+  = f.input :discussion_id, as: :hidden, input_html: { value: discussion.id }
   = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
-  = f.input :discussion_id, as: :hidden, input_html: { value: @discussion.id }
-  .modal-footer
-    .btn.btn-default{ data: { dismiss: 'modal' } }
-      = 'Close'
-    = f.submit 'Submit', class: 'btn btn-primary'
+  = f.input :body, as: :text, label: false, input_html: { rows: 3, cols: 85, placeholder: "write a reply..." }
+  = f.submit class: 'btn btn-rareshare'
+
