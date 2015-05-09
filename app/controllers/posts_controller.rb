@@ -2,13 +2,13 @@ class PostsController < ApplicationController
   def create
     @discussion = Discussion.find(post_params[:discussion_id])
     @post = @discussion.posts.build(post_params)
+    @community = Community.find(params[:post][:community_id])
 
-    if @post
-      @post.save
-    else
+    if @post.save
       redirect_to :back
+    else
+      redirect_to :back 
     end
-    redirect_to :back
   end
 
   private
