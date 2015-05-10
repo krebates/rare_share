@@ -1,7 +1,8 @@
 class LeaderRequestsController < ApplicationController
   def create
     ::LeaderRequestMailer.new(leader_request_params, current_user).send
-    redirect_to :back
+    flash[:success] = "Your Request has been submitted."
+      redirect_to :back
   end
 
   private
