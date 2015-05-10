@@ -1,6 +1,8 @@
 .container
   %h4
     = @discussion.title
+  %p
+    = @discussion.subject
   .row.margin--small--top
     - @discussion.posts.each do |post|
       .col-md-1
