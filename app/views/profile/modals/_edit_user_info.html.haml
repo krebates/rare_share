@@ -9,9 +9,8 @@
       as: :check_boxes,
       wrapper: :horizontal_radio_and_checkboxes,
       checked: @user.roles.map(&:id)
-
     = f.input :city, input_html: {value: @user.city}
-    = f.input :state, input_html: { value: @user.state }
+    = f.input :state, collection: [ "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"], input_html: { value: @user.state }
     = f.input :country, as: :country, input_html: { value: @user.country }
 
     = f.input :first_name, input_html: { value: @user.first_name}
