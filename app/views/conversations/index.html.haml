@@ -7,6 +7,6 @@
       %p
         -# TODO Refactor please
         = Mailboxer::Message.find(conversation).body
-      = link_to "Reply", new_conversation_reply_path(conversation)
+      = link_to I18n.t("form.reply"), new_conversation_reply_path(conversation)
 
 

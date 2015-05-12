@@ -1,5 +1,5 @@
 - content_for(:modal_title) do
-  = "Reply"
+  = I18n.t("form.reply")
 
 - content_for(:modal_body) do
   = simple_form_for :reply, url: conversation_replies_path(conversation) do |f|
@@ -7,7 +7,7 @@
     = f.input :subject, input_html: { value: "Re: #{conversation.subject}", readonly: true }
     = f.input :body, as: :text
     .modal-footer
-      = form_buttons(f, submit_text: "Start Discussion")
+      = form_buttons(f, submit_text: I18n.t("discussion.start") )
 
 #conversation_reply.modal.fade
   = render template: "style_guide/modal"

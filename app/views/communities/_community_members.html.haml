@@ -1,9 +1,9 @@
 .panel.panel-default
   .panel-heading
     %h3.panel-title
-      = "Community Members"
+      = I18n.t("community.members")
       .pull-right
-        = link_to "View All", memberships_path(community_id: @community.id)
+        = link_to I18n.t("community.view_all"), memberships_path(community_id: @community.id)
   .panel-body
     .row
       - @community.recent_members(6).each do |member|

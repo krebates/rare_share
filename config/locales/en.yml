@@ -35,6 +35,7 @@ en:
       freejoin: "It's free and easy to join RareShare."
       signup: "SIGN UP NOW"
       view_profile: "View my profile"
+      send_message: 'SEND A MESSAGE'
     communities: "YOUR COMMUNITIES"
     recent_communities: "RECENTLY IN YOUR COMMUNITIES"
     discussion:
@@ -55,4 +56,34 @@ en:
     write_reply: "write a reply..."
     reply: "Reply"
     start_discussion: "Start Discussion"
+
+  discussion:
+    new: "New Discussion"
+    start: "Start Discussion"
+    title: "Discussion Forum"
+    created: "Created by"
+    warning: "No discussions have been started for this community. Start one by clicking on the Discussion Forum tab and adding a new discussion."
+
+  message:
+    send_message: "Send Message"
+    send: "Send"
+    cancel: "Cancel"
+
+
+  community:
+    leaders: "Community Leaders"
+    leader_warning: "No leaders have been elected for this group. Would you like to become a leader? Submit a request to become a leader."
+    become_leader: 'BECOME A LEADER'
+    stats: "Community Statistics"
+    no_description: "This community has not inputted a description."
+    members: "Community Members"
+    view_all: "View All"
+    info: "Community Information"
+    newest_members: "NEWEST MEMBERS"
+    resources: "Community Resources"
+    title: "Title"
+    description: "Description"
+    link: "Link"
+    date_added: "Date Added"
+
 
