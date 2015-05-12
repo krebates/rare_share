@@ -2,7 +2,7 @@
 
 = link_to "#new_discussion", { data: { target: '#new_discussion', toggle: 'modal' }, class: 'pull-right' } do
   = fa_icon('plus')
-  = "New Discussion"
+  = I18n.t("discussion.new")
 
 - @community.discussions.each do |discussion|
   .col-md-1
@@ -25,7 +25,7 @@
             = image_tag author_image, class: 'icon-image--rounded'
           .col-md-11
             %i
-              = "Posted by"
+              = I18n.t("homepage.discussion.posted")
               = link_to post.author.name, profile_path(post.author)
             %br
             %i
@@ -37,7 +37,7 @@
       .row
         .margin--small--vertical
           .col-md-6
-            = link_to "View Full Thread", discussion_path(discussion), class: 'text--teal'
+            = link_to I18n.t("homepage.discussion.thread"), discussion_path(discussion), class: 'text--teal'
           .col-md-6
           .col-md-6
 

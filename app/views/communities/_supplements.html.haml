@@ -8,18 +8,18 @@
           = fa_icon('plus')
           = "Add Resource"
     .panel-title
-      = "Community Resources"
+      = I18n.t("community.resources")
   .panel-body
     %table{width: '100%'}
       %thead
         %th
-          = "Title"
+          = I18n.t("community.title")
         %th
-          = "Description"
+          = I18n.t("community.description")
         %th
-          = "Link"
+          = I18n.t("community.link")
         %th
-          = "Date Added"
+          = I18n.t("community.date_added")
       %tbody
         - @community.supplements.each do |supplement|
           %tr

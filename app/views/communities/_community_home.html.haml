@@ -2,12 +2,12 @@
   = "What is #{@community.name}?"
 
 %p
-  = @community.description || "This community has not inputted a description."
+  = @community.description || I18n.t("community.no_description")
 
 .row
   .col-md-8
     %h3
-      ="Community Statistics"
+      = I18n.t("community.stats")
 
     .media
       .media-left

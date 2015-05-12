@@ -1,5 +1,5 @@
 %h3
-  = "Community Leaders"
+  = I18n.t("community.leaders")
 
 - if @community.leaders.present?
   = render partial: "communities/modals/message_leader", locals: { leaders: @community.leaders }
@@ -13,12 +13,12 @@
           = leader.name
         %p
           = leader.bio
-        = link_to 'SEND A MESSAGE', '#message_leader', data: { target: '#message_leader', toggle: 'modal'}, class: 'btn btn-rareshare'
+        = link_to I18n.t("homepage.commands.send_message"), '#message_leader', data: { target: '#message_leader', toggle: 'modal'}, class: 'btn btn-rareshare'
 - else
   %p
-    = "No leaders have been elected for this group. Would you like to become a leader? Submit a request to become a leader."
+    = I18n.t("community.leader_warning")
     - if user_signed_in?
-      = link_to 'BECOME A LEADER', '#become_leader', data: { target: '#become_leader', toggle: 'modal'}, class: 'btn btn-rareshare'
+      = link_to I18n.t("community.become_leader"), '#become_leader', data: { target: '#become_leader', toggle: 'modal'}, class: 'btn btn-rareshare'
 
 
 = render partial: "communities/modals/become_leader"
