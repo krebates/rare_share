@@ -39,16 +39,16 @@
         = image_tag 'homepage/face.png'
     .col-md-4
       %h4
-        = "LOG INTO YOUR ACCOUNT"
+        = I18n.t("homepage.commands.login")
       %p
         = render 'login_form'
     .col-md-6.border--gray--left
       %h4
-        ="DON'T HAVE AN ACCOUNT? BECOME A MEMBER"
+        = I18n.t("homepage.commands.join")
       %p
-        ="It's free and easy to join RareShare."
+        = I18n.t("homepage.commands.freejoin")
       .text-aligned--center
-        = link_to "SIGN UP NOW", new_user_registration_path, class: 'btn btn-rareshare'
+        = link_to I18n.t("homepage.commands.signup"), new_user_registration_path, class: 'btn btn-rareshare'
 
 .container.margin--medium--top
   = render 'shared/footer_ctas'

@@ -22,14 +22,37 @@
 en:
   homepage:
     title:
-      why_rare_disorders: Why Rare Disorders?
-      benefits_of_communities: Benefits of RareShare Communities 
+      why_rare_disorders: "Why Rare Disorders?"
+      benefits_of_communities: "Benefits of RareShare Communities "
     body:
-      why_rare_disorders: Even though there are 7,000 known rare conditions, many of the 300 million affected patients around the globe feel along. RareShare was founded in 2008 to give these people and their loved ones a sense of community; a place to sympathize, celebrate, and share their experiences and expertise, together.
-      community: Create a sense of community for those affected by rare disorders
-      communicate: Communicate with others that are affected by the same condition
-      contribute: Contribute condition-related information, experiences, support, and resources
+      why_rare_disorders: "Even though there are 7,000 known rare conditions, many of the 300 million affected patients around the globe feel along. RareShare was founded in 2008 to give these people and their loved ones a sense of community; a place to sympathize, celebrate, and share their experiences and expertise, together."
+      community: "Create a sense of community for those affected by rare disorders"
+      communicate: "Communicate with others that are affected by the same condition"
+      contribute: "Contribute condition-related information, experiences, support, and resources"
+    commands:
+      login: "LOG INTO YOUR ACCOUNT"
+      join: "DON'T HAVE AN ACCOUNT? BECOME A MEMBER"
+      freejoin: "It's free and easy to join RareShare."
+      signup: "SIGN UP NOW"
+      view_profile: "View my profile"
+    communities: "YOUR COMMUNITIES"
+    recent_communities: "RECENTLY IN YOUR COMMUNITIES"
+    discussion:
+      created: "Created by #{discussion.author.name}"
+      thread: "View Full Thread"
+      posted: "Posted by"
+
+
 
   navigation:
-    sign_in: Sign In
-    register: Register 
+    sign_in: "Sign In"
+    register: "Register"
+
+  form:
+    email: "Email Address"
+    password: "Password"
+    login: "Log In"
+    write_reply: "write a reply..."
+    reply: "Reply"
+    start_discussion: "Start Discussion"
+
