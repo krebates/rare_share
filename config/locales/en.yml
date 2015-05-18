@@ -33,9 +33,10 @@ en:
       login: "LOG INTO YOUR ACCOUNT"
       join: "DON'T HAVE AN ACCOUNT? BECOME A MEMBER"
       freejoin: "It's free and easy to join RareShare."
-      signup: "SIGN UP NOW"
+      sign_up: "SIGN UP NOW"
       view_profile: "View my profile"
       send_message: 'SEND A MESSAGE'
+      edit_profile: "EDIT PROFILE"
     communities: "YOUR COMMUNITIES"
     recent_communities: "RECENTLY IN YOUR COMMUNITIES"
     discussion:
