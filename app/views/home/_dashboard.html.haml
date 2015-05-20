@@ -65,7 +65,7 @@
                   = simple_form_for :post, url: posts_path, method: :post do |f|
                     = f.input :discussion_id, as: :hidden, input_html: { value: discussion.id }
                     = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
-                    = f.input :body, as: :text, label: false, input_html: { rows: 3, cols: 85, placeholder: I18n.t("form.write_reply") }
+                    = f.input :body, as: :text, label: false, input_html: { rows: 3, cols: 85, placeholder: I18n.t("form.write_reply") }, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini'} }
                     = f.submit I18n.t("form.reply"), class: 'btn btn-rareshare'
 
   %hr.margin--medium--top
