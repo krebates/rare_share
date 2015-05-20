@@ -25,6 +25,7 @@ gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'rails_12factor', group: :production
 gem 'kaminari'
 gem 'country_select'
+gem 'ckeditor'
 
 #uploader
 gem 'carrierwave'
