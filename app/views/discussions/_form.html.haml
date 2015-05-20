@@ -2,6 +2,6 @@
   = f.input :community_id, as: :hidden, input_html: { value: @community.id }
   = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
   = f.input :title
-  = f.input :subject, as: :text
+  = f.input :subject, as: :text, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }
   .modal-footer
     = form_buttons(f, submit_text: I18n.t("form.start_discussion") )

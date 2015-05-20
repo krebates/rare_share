@@ -16,7 +16,7 @@
           %small
             = "#{time_ago_in_words(post.created_at)} ago"
         %p
-          = post.body
+          = post.body.html_safe
 
   .margin--small--vertical
     = render 'posts/form', discussion: @discussion
