@@ -1,72 +1,73 @@
-= render partial: "shared/user_header", locals: { user: current_user }
-- user_avatar = current_user.avatar.present? ? current_user.avatar : "community-icon.png"
-
 .container.margin--medium--top
-  %p.overlap--top--small
-    = link_to I18n.t("homepage.commands.edit_profile"), profile_path(current_user), class: 'btn btn-rareshare'
+  - if current_user.communities.present?
+    .row.margin--large--top
+      .col-md-3
+        %h4.border--gray--bottom.text--teal
+          = I18n.t("homepage.communities")
+          %ul.list-group
+            - current_user.communities.each do |community|
+              %li.list-group-item.list-group-item--border--bottom
+                = link_to community.name, community_path(community)
+        = render partial: 'communities/newest_members', locals: { user_avatar: user_avatar }
+        .margin--medium--top
+          = render 'shared/left_rail_ctas'
 
-  .row.margin--large--top
-    .col-md-3
-      %h4.border--gray--bottom.text--teal
-        = I18n.t("homepage.communities")
-      %ul.list-group
-        - current_user.communities.each do |community|
-          %li.list-group-item.list-group-item--border--bottom
-            = link_to community.name, community_path(community)
-      = render partial: 'communities/newest_members', locals: { user_avatar: user_avatar }
-      .margin--medium--top
-        = render 'shared/left_rail_ctas'
+      .col-md-9
+        %h4.text--teal
+          = I18n.t("homepage.recent_communities")
 
-    .col-md-9
-      %h4.text--teal
-        = I18n.t("homepage.recent_communities")
-      .row
-        - current_user.communities.map(&:newest_discussions).each do |discussions|
-          - discussions.each do |discussion|
-            .col-md-1
-              - author_image = discussion.author.avatar.present? ? discussion.author.avatar : 'community-icon.png'
-              = image_tag author_image, class: 'icon-image--rounded'
-            .col-md-11
-              %strong
-                = discussion.title
-              %i
-                = I18n.t("homepage.discussion.created", author_name: discussion.author.name)
-              %br
-                %small
-                  = "Last updated #{time_ago_in_words(discussion.last_updated)} ago"
-              %br
-              %i
-                = "Community: #{discussion.community.name}"
-              - if discussion.posts.present?
-                .row.margin--small--top
-                  - discussion.newest_posts.take(3).each do |post|
-                    .col-md-1
-                      - author_image = post.author.avatar.present? ? post.author.avatar : 'community-icon.png'
-                      = image_tag author_image, class: 'icon-image--rounded'
-                    .col-md-11
-                      %i
-                        = I18n.t("homepage.discussion.posted")
-                        = link_to post.author.name, profile_path(post.author)
-                      %br
-                      %i
-                        %small
-                          = "#{time_ago_in_words(post.created_at)} ago"
-                      %p
-                        = post.body.html_safe
-              .border--gray--top
-                .row
-                  .margin--small--vertical
-                    .col-md-6
-                      = link_to I18n.t("homepage.discussion.thread"), discussion_path(discussion), class: 'text--teal'
-                    .col-md-6
-                    .col-md-6
+        - if current_user.communities.present?
+          .row
+            - current_user.communities.map(&:newest_discussions).each do |discussions|
+              - discussions.each do |discussion|
+                .col-md-1
+                  - author_image = discussion.author.avatar.present? ? discussion.author.avatar : 'community-icon.png'
+                  = image_tag author_image, class: 'icon-image--rounded'
+                .col-md-11
+                  %strong
+                    = discussion.title
+                  %i
+                    = I18n.t("homepage.discussion.created", author_name: discussion.author.name)
+                  %br
+                    %small
+                      = "Last updated #{time_ago_in_words(discussion.last_updated)} ago"
+                  %br
+                  %i
+                    = "Community: #{discussion.community.name}"
+                  - if discussion.posts.present?
+                    .row.margin--small--top
+                      - discussion.newest_posts.take(3).each do |post|
+                        .col-md-1
+                          - author_image = post.author.avatar.present? ? post.author.avatar : 'community-icon.png'
+                          = image_tag author_image, class: 'icon-image--rounded'
+                        .col-md-11
+                          %i
+                            = I18n.t("homepage.discussion.posted")
+                            = link_to post.author.name, profile_path(post.author)
+                          %br
+                          %i
+                            %small
+                              = "#{time_ago_in_words(post.created_at)} ago"
+                          %p
+                            = post.body.html_safe
+                  .border--gray--top
+                    .row
+                      .margin--small--vertical
+                        .col-md-6
+                          = link_to I18n.t("homepage.discussion.thread"), discussion_path(discussion), class: 'text--teal'
+                        .col-md-6
+                        .col-md-6
 
-                .margin--small--vertical
-                  = simple_form_for :post, url: posts_path, method: :post do |f|
-                    = f.input :discussion_id, as: :hidden, input_html: { value: discussion.id }
-                    = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
-                    = f.input :body, as: :text, label: false, input_html: { rows: 3, cols: 85, placeholder: I18n.t("form.write_reply") }, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini'} }
-                    = f.submit I18n.t("form.reply"), class: 'btn btn-rareshare'
+                    .margin--small--vertical
+                      = simple_form_for :post, url: posts_path, method: :post do |f|
+                        = f.input :discussion_id, as: :hidden, input_html: { value: discussion.id }
+                        = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+                        = f.input :body, as: :text, label: false, input_html: { rows: 3, cols: 85, placeholder: I18n.t("form.write_reply") }, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini'} }
+                        = f.submit I18n.t("form.reply"), class: 'btn btn-rareshare'
+
+  - else
+    = render 'communities_blank_state'
+
 
   %hr.margin--medium--top
 
