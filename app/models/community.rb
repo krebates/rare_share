@@ -18,6 +18,10 @@ class Community < ActiveRecord::Base
     end
   end
 
+  def include_user?(user)
+    user.communities.include?(self)
+  end
+
   def leaders
     members.select { |member| member.title == 'expert' }
   end
@@ -33,7 +37,7 @@ class Community < ActiveRecord::Base
       members.last(number_of_members)
     end
   end
-  
+
   def newest_discussions
     discussions.order("created_at DESC")
   end
