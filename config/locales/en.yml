@@ -40,7 +40,7 @@ en:
     communities: "YOUR COMMUNITIES"
     recent_communities: "RECENTLY IN YOUR COMMUNITIES"
     discussion:
-      created: "Created by #{discussion.author.name}"
+      created: "Created by %{author_name}"
       thread: "View Full Thread"
       posted: "Posted by"
 
