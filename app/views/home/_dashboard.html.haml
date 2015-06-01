@@ -30,7 +30,7 @@
               %strong
                 = discussion.title
               %i
-                = I18n.t("homepage.discussion.created")
+                = I18n.t("homepage.discussion.created", author_name: discussion.author.name)
               %br
                 %small
                   = "Last updated #{time_ago_in_words(discussion.last_updated)} ago"
