@@ -24,24 +24,24 @@
 
     %hr.margin--medium
 
-    %h4
-      = "All Communities"
-    .col-md-10
-      %ul.list_group.margin--medium--top
-        - @communities.sort_by{ |comm| comm.name.downcase}.each do |community|
-          %li.list-group-item.list-group-item--border--horizontal
-            = link_to community.name, community
-            .pull-right
-              - if community.include_user?(current_user)
-                = link_to "Leave community", membership_path(Membership.for(current_user, community).id), method: :delete, data: { confirm: "Are you sure you want to leave this community?" }, class: 'btn btn-danger'
-              - else
-                = button_to 'Join', memberships_path(community_id: community.id, user_id: current_user.id), class: 'btn btn-primary', method: 'post'
-            %small
-              %p
-                = "#{community.members.count} members"
+  %h4
+    = "All Communities"
+  .col-md-10
+    %ul.list_group.margin--medium--top
+      - @communities.sort_by{ |comm| comm.name.downcase}.each do |community|
+        %li.list-group-item.list-group-item--border--horizontal
+          = link_to community.name, community
+          .pull-right
+            - if community.include_user?(current_user)
+              = link_to "Leave community", membership_path(Membership.for(current_user, community).id), method: :delete, data: { confirm: "Are you sure you want to leave this community?" }, class: 'btn btn-danger'
+            - else
+              = button_to 'Join', memberships_path(community_id: community.id, user_id: current_user.id), class: 'btn btn-primary', method: 'post'
+          %small
             %p
-              - if community.description.present?
-                = community.description.truncate(100, separator: ' ')
-        = paginate @communities
+              = "#{community.members.count} members"
+          %p
+            - if community.description.present?
+              = community.description.truncate(100, separator: ' ')
+      = paginate @communities
 
 
