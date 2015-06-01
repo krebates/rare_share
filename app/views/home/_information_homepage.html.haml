@@ -34,7 +34,7 @@
 
 .background--gray.padding--large.margin--large--vertical
   .row
-    .col-md-2
+    .col-md-3
       .circle
         = image_tag 'homepage/face.png'
     .col-md-4
@@ -42,13 +42,12 @@
         = I18n.t("homepage.commands.login")
       %p
         = render 'login_form'
-    .col-md-6.border--gray--left
+    .col-md-5.border--gray--left
       %h4
         = I18n.t("homepage.commands.join")
       %p
         = I18n.t("homepage.commands.freejoin")
-      .text-aligned--center
-        = link_to I18n.t("homepage.commands.signup"), new_user_registration_path, class: 'btn btn-rareshare'
+      = link_to I18n.t("homepage.commands.signup"), new_user_registration_path, class: 'btn btn-rareshare'
 
 .container.margin--medium--top
   = render 'shared/footer_ctas'
