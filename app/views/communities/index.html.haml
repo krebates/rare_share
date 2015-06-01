@@ -13,7 +13,7 @@
 
     .col-md-10
       %ul.list_group.margin--medium--top
-        - @communities.each do |community|
+        - @communities.sort_by{ |comm| comm.name.downcase}.each do |community|
           %li.list-group-item.list-group-item--border--horizontal
             = link_to community.name, community
             .pull-right
