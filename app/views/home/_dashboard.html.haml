@@ -1,18 +1,18 @@
 .container.margin--medium--top
   - if current_user.communities.present?
     .row.margin--large--top
-      .col-md-3
+      .col-md-4
         %h4.border--gray--bottom.text--teal
           = I18n.t("homepage.communities")
-          %ul.list-group
-            - current_user.communities.each do |community|
-              %li.list-group-item.list-group-item--border--bottom
-                = link_to community.name, community_path(community)
+        %ul.list-group
+          - current_user.communities.each do |community|
+            %li.list-group-item.list-group-item--border--bottom
+              = link_to community.name, community_path(community)
         = render partial: 'communities/newest_members'
         .margin--medium--top
           = render 'shared/left_rail_ctas'
 
-      .col-md-9
+      .col-md-8
         %h4.text--teal
           = I18n.t("homepage.recent_communities")
 
@@ -67,7 +67,6 @@
 
   - else
     = render 'communities_blank_state'
-
 
   %hr.margin--medium--top
 
