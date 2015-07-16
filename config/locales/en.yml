@@ -43,6 +43,7 @@ en:
       created: "Created by %{author_name}"
       thread: "View Full Thread"
       posted: "Posted by"
+      warning: "You have no discussions for this community."
 
 
 

@@ -1,55 +1,47 @@
 = render partial: "communities/modals/new_discussion"
+= link_to "#new_discussion", { data: { target: '#new_discussion', toggle: 'modal' }, class: 'pull-right' } do
+  = fa_icon('plus')
+  = I18n.t("discussion.new")
 
 - if @community.discussions.present?
-  = link_to "#new_discussion", { data: { target: '#new_discussion', toggle: 'modal' }, class: 'pull-right' } do
-    = fa_icon('plus')
-    = I18n.t("discussion.new")
+  .row
+    - @community.discussions.order('updated_at DESC').each do |discussion|
+      .col-md-1
+        - author_image = discussion.author.avatar.present? ? discussion.author.avatar : 'community-icon.png'
+        = image_tag author_image, class: 'icon-image--rounded'
+      .col-md-11
+        %strong
+          = discussion.title
+        %i
+          = "Created by #{discussion.author.name}"
+        %br
+          %small
+            = "Last updated #{time_ago_in_words(discussion.last_updated)} ago"
+        %br
+        - if discussion.posts.present?
+          .row.margin--small--top
+            - discussion.newest_posts.take(3).each do |post|
+              .col-md-1
+                - author_image = post.author.avatar.present? ? post.author.avatar : 'community-icon.png'
+                = image_tag author_image, class: 'icon-image--rounded'
+              .col-md-11
+                %i
+                  = I18n.t("homepage.discussion.posted")
+                  = link_to post.author.name, profile_path(post.author)
+                %br
+                %i
+                  %small
+                    = "#{time_ago_in_words(post.created_at)} ago"
+                %p
+                  = post.body.html_safe
+                = render partial: 'shared/view_full_thread', locals: { discussion: discussion }
 
-  - @community.discussions.each do |discussion|
-    .col-md-1
-      - author_image = discussion.author.avatar.present? ? discussion.author.avatar : 'community-icon.png'
-      = image_tag author_image, class: 'icon-image--rounded'
-    .col-md-11
-      %strong
-        = discussion.title
-      %i
-        = "Created by #{discussion.author.name}"
-      %br
-        %small
-          = "Last updated #{time_ago_in_words(discussion.last_updated)} ago"
-      %br
-      - if discussion.posts.present?
-        .row.margin--small--top
-          - discussion.newest_posts.take(3).each do |post|
-            .col-md-1
-              - author_image = post.author.avatar.present? ? post.author.avatar : 'community-icon.png'
-              = image_tag author_image, class: 'icon-image--rounded'
-            .col-md-11
-              %i
-                = I18n.t("homepage.discussion.posted")
-                = link_to post.author.name, profile_path(post.author)
-              %br
-              %i
-                %small
-                  = "#{time_ago_in_words(post.created_at)} ago"
-              %p
-                = post.body
-      .border--gray--top
-        .row
-          .margin--small--vertical
-            .col-md-6
-              = link_to I18n.t("homepage.discussion.thread"), discussion_path(discussion), class: 'text--teal'
-            .col-md-6
-            .col-md-6
-
-        .margin--small--vertical
-          = render partial: 'posts/form', locals: { discussion: discussion }
 - else
   .jumbotron
     .text-center
       = image_tag 'logo.png'
       %h4
-        = "#{@community.name} community discussions will be posted here." 
+        = "#{@community.name} community discussions will be posted here."
       %p
         ="There are no new discussions. Start one now!!"
       = link_to "#new_discussion", { data: { target: '#new_discussion', toggle: 'modal' } } do

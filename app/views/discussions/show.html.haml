@@ -1,3 +1,11 @@
+%ol.breadcrumb
+  %li
+    = link_to "Home", root_path
+  %li
+    = link_to "#{@discussion.community.name}", community_path(@discussion.community)
+  %li.active
+    = "#{@discussion.title}"
+
 .container
   %h4
     = @discussion.title

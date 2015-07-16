@@ -2,8 +2,8 @@
   = I18n.t("community.newest_members")
 - recent_users(6).each do |user|
   .row.margin--small--bottom
-    .col-md-4
+    .col-md-3
       - user_avatar = user.avatar.present? ? user.avatar : "community-icon.png"
       = image_tag user_avatar, class: 'icon-image--rounded'
-    .col-md-8{ style: 'margin-top: 15px' }
+    .col-md-9{ style: 'margin-top: 15px' }
       = link_to "#{user.name}", profile_path(user)

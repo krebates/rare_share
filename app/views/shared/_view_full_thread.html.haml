@@ -1,0 +1,5 @@
+= link_to I18n.t("homepage.discussion.thread"), discussion_path(discussion), class: 'text--teal'
+- if discussion.posts.count > 3
+  - more_posts_count = discussion.posts.count - 3
+  = "(#{more_posts_count} more posts)"
+.border--gray--bottom.margin--medium--vertical

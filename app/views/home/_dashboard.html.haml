@@ -50,20 +50,7 @@
                               = "#{time_ago_in_words(post.created_at)} ago"
                           %p
                             = post.body.html_safe
-                  .border--gray--top
-                    .row
-                      .margin--small--vertical
-                        .col-md-6
-                          = link_to I18n.t("homepage.discussion.thread"), discussion_path(discussion), class: 'text--teal'
-                        .col-md-6
-                        .col-md-6
-
-                    .margin--small--vertical
-                      = simple_form_for :post, url: posts_path, method: :post do |f|
-                        = f.input :discussion_id, as: :hidden, input_html: { value: discussion.id }
-                        = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
-                        = f.input :body, as: :text, label: false, input_html: { rows: 3, cols: 85, placeholder: I18n.t("form.write_reply") }, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini'} }
-                        = f.submit I18n.t("form.reply"), class: 'btn btn-rareshare'
+                          = render partial: 'shared/view_full_thread', locals: { discussion: discussion }
 
   - else
     = render 'communities_blank_state'

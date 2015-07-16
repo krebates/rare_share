@@ -71,7 +71,8 @@ class User < ActiveRecord::Base
   end
 
   def name
-    first_name.present? ? "#{first_name} #{last_name}" : username
+    name = first_name.present? ? "#{first_name} #{last_name}" : "Anonymous User"
+    username.present? ? username : name
   end
 
   def mailerbox_email(object)
