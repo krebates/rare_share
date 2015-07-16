@@ -25,7 +25,7 @@
                   = image_tag author_image, class: 'icon-image--rounded'
                 .col-md-11
                   %strong
-                    = discussion.title
+                    = link_to "#{discussion.title}", discussion_path(discussion)
                   %i
                     = I18n.t("homepage.discussion.created", author_name: discussion.author.name)
                   %br
@@ -50,7 +50,7 @@
                               = "#{time_ago_in_words(post.created_at)} ago"
                           %p
                             = post.body.html_safe
-                          = render partial: 'shared/view_full_thread', locals: { discussion: discussion }
+                  = render partial: 'shared/view_full_thread', locals: { discussion: discussion }
 
   - else
     = render 'communities_blank_state'

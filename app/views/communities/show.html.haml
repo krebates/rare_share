@@ -1,15 +1,13 @@
 .container
   .row.margin--medium--bottom
-    .col-md-8
+    .col-md-9
       %h3
         = @community.name
-    .col-md-4
+    .col-md-3
       .row
         .col-md-6
           - if can? :manage, Community
-            = link_to edit_community_path(@community) do
-              = fa_icon('pencil')
-              = "Edit Community"
+            = link_to "Edit Community", edit_community_path(@community), { class: 'btn btn-default' }
         .col-md-6
           - if @community.include_user?(current_user)
             = link_to "Leave Community", membership_path(Membership.for(current_user, @community).id), method: :delete, data: { confirm: "Are you sure you want to leave this community?" }, class: 'btn btn-danger'
