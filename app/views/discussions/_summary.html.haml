@@ -14,13 +14,6 @@
             = link_to "#{discussion.author.name}", profile_path(discussion.author)
           = "Last updated #{discussion.last_updated}"
   - else
-    .jumbotron
-      .text-center
-        = image_tag 'logo.png'
-        %h4
-          = "#{@community.name} community discussions will be posted here."
-        %p
-          ="There are no new discussions. Start one now!!"
-        = link_to "#new_discussion", { data: { target: '#new_discussion', toggle: 'modal' } } do
-          = fa_icon('plus')
-          = I18n.t("discussion.new")
+    .margin--small--bottom
+      = link_to I18n.t("discussion.new"), "#new_discussion", { data: { target: '#new_discussion', toggle: 'modal' }, class: 'btn btn-primary' }
+    = render partial: 'discussions/blank_state', locals: { community: @community }

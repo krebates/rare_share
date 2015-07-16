@@ -35,13 +35,4 @@
         = render partial: 'shared/view_full_thread', locals: { discussion: discussion }
 
 - else
-  .jumbotron
-    .text-center
-      = image_tag 'logo.png'
-      %h4
-        = "#{@community.name} community discussions will be posted here."
-      %p
-        ="There are no new discussions. Start one now!!"
-      = link_to "#new_discussion", { data: { target: '#new_discussion', toggle: 'modal' } } do
-        = fa_icon('plus')
-        = I18n.t("discussion.new")
+  = render partial: 'discussions/blank_state', locals: { community: @community }
